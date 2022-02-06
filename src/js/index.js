@@ -1,6 +1,4 @@
-import { kakaoLogin, kakaoLogout } from '../js/Auth/Auth.js';
-
-let data = await window.Kakao.API.request({
+const data = await window.Kakao.API.request({
   url: '/v2/user/me',
 });
 
@@ -9,10 +7,22 @@ const USER = {
   img: data.properties.profile_image,
 };
 
-console.log(USER);
+function printProfile(obj) {
+  const profile = document.createElement('div');
 
-const profileName = document.querySelector('.user-profile-name');
-profileName.innerHTML = `<div>${USER.nickname}</div>`;
+  const profile_nickname = document.createElement('p');
 
-const profileImg = document.querySelector('.user-profile-img');
-profileImg.innerHTML = `<img class='profile-img' src=${USER.img} />`;
+  const profile_img = document.createElement('img');
+  profile_img.src = obj.img;
+  profile_img.id = 'profile-img';
+
+  const resultProfileNickname = document.createTextNode(`${obj.nickname}`);
+  profile_nickname.append(resultProfileNickname);
+
+  profile.appendChild(profile_img);
+  profile.appendChild(profile_nickname);
+
+  document.querySelector('#app').appendChild(profile);
+}
+
+printProfile(USER);
