@@ -1,13 +1,15 @@
-import { kakaoLogin, kakaoLogout } from './Auth.js';
+import { kakaoLogin } from './Auth.js';
 
 class Login {
   kakaoIn() {
-    document.querySelector('.kakao_login').addEventListener('click', (e) => {
-      kakaoLogin();
-    });
+    document
+      .querySelector('.kakao-login-btn')
+      .addEventListener('click', (e) => {
+        kakaoLogin();
+      });
   }
 }
 
-const log = new Login();
+const login = new Login();
 
-log.kakaoIn();
+login.kakaoIn();

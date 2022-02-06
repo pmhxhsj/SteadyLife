@@ -1,16 +1,15 @@
-import { kakaoLogin, kakaoLogout } from './Auth.js';
+import { kakaoLogout } from './Auth.js';
 
 class Logout {
   kakaoOut() {
-    document.querySelector('.kakao_logout').addEventListener('click', (e) => {
-      kakaoLogout();
-    });
+    document
+      .querySelector('.kakao-logout-btn')
+      .addEventListener('click', (e) => {
+        kakaoLogout();
+      });
   }
 }
 
-let getLink = window.location.search;
-console.log(getLink);
+const logout = new Logout();
 
-const log = new Logout();
-
-log.kakaoOut();
+logout.kakaoOut();
