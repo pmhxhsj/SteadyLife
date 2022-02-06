@@ -1,0 +1,16 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-item {
+  text-align: center;
+}
+
+.kakao_login {
+  border: 1px solid black;
+  border-radius: 10px;
+}
