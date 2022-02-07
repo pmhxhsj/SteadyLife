@@ -12,17 +12,20 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="main-header">
+    <header class="main-header">
+      <div class="main-header-container">
         <h1>Steady Life</h1>
         <button class="kakao-logout-btn btn btn-success" type="button">
           로그아웃
         </button>
       </div>
     </header>
-    <div id="app"></div>
+    <br />
+    <div class="proflie-clock-container">
+      <div id="app"></div>
+      <div id="clock"></div>
+    </div>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script type="module" src="js/Auth/Auth.js"></script>
     <script type="module" src="js/Auth/Logout.js"></script>
     <script type="module" src="js/index.js"></script>
   </body>

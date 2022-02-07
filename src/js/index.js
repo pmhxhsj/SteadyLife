@@ -7,3 +7,4 @@ const data = await window.Kakao.API.request({
 const $profile = new Profile();
 
 $profile.printProfile($profile.USER);
+setInterval($profile.printDate, 1000);

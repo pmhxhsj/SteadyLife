@@ -1,16 +1,23 @@
 .main-header {
+  background-color: rgb(245, 245, 245);
+  height: 11vh;
+}
+
+.main-header-container {
   display: flex;
   text-align: center;
-  margin: 20px 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .kakao-logout-btn {
-  margin-top: 25px;
+  margin-top: 20px;
   margin-left: auto;
   text-align: center;
   width: 80px;
   height: 40px;
 }
+
 #profile-img {
   width: 50px;
   border-radius: 70%;
@@ -33,4 +40,15 @@
 }
 
 @media (min-width: 1300px) {
+}
+
+.proflie-clock-container {
+  display: flex;
+  align-items: center;
+}
+
+#clock {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 50px;
 }

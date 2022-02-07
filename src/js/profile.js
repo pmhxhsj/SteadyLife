@@ -7,6 +7,7 @@ class Profile {
     nickname: data.properties.nickname,
     img: data.properties.profile_image,
   };
+
   printProfile(obj) {
     const profile = document.createElement('div');
 
@@ -25,6 +26,20 @@ class Profile {
     profile.appendChild(profile_nickname);
 
     document.querySelector('#app').appendChild(profile);
+  }
+
+  printDate() {
+    const today = new Date();
+
+    let month = today.getMonth() + 1; // 월
+    let date = today.getDate(); // 날짜
+    let hours = String(today.getHours()).padStart(2, '0'); // 시
+    let minutes = String(today.getMinutes()).padStart(2, '0'); // 분
+    let second = String(today.getSeconds()).padStart(2, '0');
+
+    document.querySelector(
+      '#clock'
+    ).innerText = `${month}/${date} ${hours}:${minutes}:${second}`;
   }
 }
 
