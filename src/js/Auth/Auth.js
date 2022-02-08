@@ -2,8 +2,7 @@ import key from '../config/key.js';
 
 window.Kakao.init(key.kakao);
 
-function kakaoLogin() {
-  var user = {};
+const kakaoLogin = () => {
   window.Kakao.Auth.login({
     scope: 'profile, account_email', // 동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
     success(response) {
@@ -20,9 +19,9 @@ function kakaoLogin() {
       console.log(error);
     },
   });
-}
+};
 
-function kakaoLogout() {
+const kakaoLogout = () => {
   if (!Kakao.Auth.getAccessToken()) {
     console.log('Not logged in.');
     return;
@@ -31,6 +30,6 @@ function kakaoLogout() {
     alert('로그아웃 되었습니다.');
     window.location.href = 'index.html';
   });
-}
+};
 
 export { kakaoLogin, kakaoLogout };
