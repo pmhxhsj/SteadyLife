@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+
+* {
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+.create-container {
+  display: flex;
+  justify-content: center;
+}
+
+.to-do-create-container {
+  text-align: center;
+  /* display: none; */
+  position: fixed;
+  bottom: 80px;
+  width: 80%;
+}
+
+#form-close-button {
+  width: 10%;
+  background-color: tomato;
+  color: white;
+  border: none;
+}
+.memo-create-container {
+  text-align: center;
+  position: fixed;
+  bottom: 70px;
+  width: 100%;
+  display: none;
+}
+
+.create-form {
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+}
+
+.input-time {
+  width: 100px;
+  height: 20px;
+}
+
+.create-form input {
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+}
+
+.input-title {
+  width: 60%;
+  height: 40px;
+}
+
+.create-form button {
+  margin: 20px 5px;
+  border: solid black 1px;
+  color: black;
+  width: 100px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#form-submit-button {
+  background-color: #111d5e;
+  color: white;
+  width: 40%;
+}

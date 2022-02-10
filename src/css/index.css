@@ -1,4 +1,10 @@
-.login-page {
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+
+* {
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+.login-page-header {
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -6,6 +12,9 @@
   align-items: center;
 }
 
+#title {
+  font-size: 50px;
+}
 .login-page-item {
   text-align: center;
 }

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+
+* {
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+#profile-img {
+  width: 30px;
+  height: auto;
+  border-radius: 70%;
+}
+
+#profile-name {
+  display: inline;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#app {
+  margin-left: 50px;
+}
+
+.profile {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (min-width: 1300px) {
+}
+
+.proflie-clock-container {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+#clock {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 50px;
+}
