@@ -22,14 +22,19 @@ const kakaoLogin = () => {
 };
 
 const kakaoLogout = () => {
-  if (!Kakao.Auth.getAccessToken()) {
-    console.log('Not logged in.');
-    return;
+  if (Kakao.Auth.getAccessToken()) {
+    Kakao.API.request({
+      url: '/v1/user/unlink',
+      success: function (response) {
+        alert('로그아웃 되었습니다.');
+        window.location.href = 'index.html';
+      },
+      fail: function (error) {
+        console.log(error);
+      },
+    });
+    Kakao.Auth.setAccessToken(undefined);
   }
-  Kakao.Auth.logout((response) => {
-    alert('로그아웃 되었습니다.');
-    window.location.href = 'index.html';
-  });
 };
 
 export { kakaoLogin, kakaoLogout };
