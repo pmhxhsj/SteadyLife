@@ -63,6 +63,6 @@
 }
 
 .btn-hover:hover {
-  background-color: rgb(75, 138, 211);
+  font-size: 15px;
   transition: all ease 0.5s 0s;
 }

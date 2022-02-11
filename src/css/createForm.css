@@ -9,16 +9,22 @@
   justify-content: center;
 }
 
+.input-table {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .to-do-create-container {
   text-align: center;
   position: fixed;
   bottom: 80px;
-  width: 80%;
+  width: 60%;
 }
 
 #form-close-button {
-  width: 10%;
-  background-color: tomato;
+  width: 20%;
+  background-color: red;
   color: white;
   border: none;
 }
@@ -48,7 +54,7 @@
 }
 
 .input-title {
-  width: 60%;
+  width: 100%;
   height: 40px;
 }
 
@@ -64,7 +70,7 @@
 #form-submit-button {
   background-color: #111d5e;
   color: white;
-  width: 40%;
+  width: 60%;
 }
 
 .hidden {
