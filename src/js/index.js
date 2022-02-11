@@ -1,12 +1,15 @@
 import Profile from './profile.js';
-import createList from './button/createButton.js';
+import Form from './form.js';
+import { storage } from './localStorage.js';
 const data = await window.Kakao.API.request({
   url: '/v2/user/me',
 });
 
 const $profile = new Profile(data);
+const $form = new Form();
 
 $profile.printProfile();
 setInterval($profile.printDate, 1000);
 
-createList();
+$form.displayForm();
+$form.closeForm();
