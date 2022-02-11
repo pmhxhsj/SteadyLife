@@ -30,29 +30,43 @@
       <div class="hidden to-do-create-container">
         <form class="create-form">
           <!-- <h2>Create List</h2> -->
-          <input
-            class="input-title"
-            type="text"
-            placeholder="할 일을 입력해주세요."
-          /><br />
-          <input id="start-time" class="input-time" type="time" /> ~
-          <input id="end-time" class="input-time" type="time" /><br />
+          <table class="input-table">
+            <tr>
+              <td>Categoty</td>
+              <td colspan="2">
+                <input
+                  class="input-category"
+                  type="text"
+                  placeholder="ex) develope"
+                />
+              </td>
+            </tr>
 
-          <button>개발</button>
-          <button>공부</button>
-          <button>독서</button>
-          <button>수면</button><br />
+            <tr>
+              <td>To do</td>
+              <td colspan="2">
+                <input
+                  class="input-title"
+                  type="text"
+                  placeholder="ex) Web Development"
+                />
+              </td>
+            </tr>
 
-          <input id="form-submit-button" type="submit" value="추가하기" />
-          <button id="form-close-button">닫기</button>
+            <tr>
+              <td>Time</td>
+              <td>
+                <input id="start-time" class="input-time" type="time" /> ~
+              </td>
+              <td><input id="end-time" class="input-time" type="time" /></td>
+            </tr>
+          </table>
+          <input id="form-submit-button" type="submit" value="Add" />
+          <button id="form-close-button">Close</button>
         </form>
       </div>
 
-      <div class="hidden memo-create-container">
-        <form class="create-form">
-          <input type="text" />
-        </form>
-      </div>
+      <div class="hidden memo-create-container"></div>
     </div>
 
     <footer class="main-footer">
