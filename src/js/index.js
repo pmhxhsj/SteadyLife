@@ -1,6 +1,6 @@
 import Profile from './profile.js';
 import Form from './form.js';
-import { storage } from './localStorage.js';
+
 const data = await window.Kakao.API.request({
   url: '/v2/user/me',
 });
