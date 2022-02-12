@@ -1,4 +1,4 @@
-import KEY from './temporaryKey.js';
+import KEY from '../config/key.js';
 
 window.Kakao.init(KEY);
 
