@@ -1,19 +1,18 @@
-import key from '../config/key.js';
+import KEY from './temporaryKey.js';
 
-window.Kakao.init(key.kakao);
+window.Kakao.init(KEY);
 
 const kakaoLogin = () => {
   window.Kakao.Auth.login({
-    scope: 'profile, account_email', // 동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+    scope: 'profile, account_email',
     success(response) {
-      console.log(response); // 로그인 성공하면 받아오는 데이터
+      console.log(response);
       window.Kakao.API.request({
-        // 사용자 정보 가져오기
         url: '/v2/user/me',
         success: (res) => {},
       });
 
-      window.location.href = 'main.html'; // 리다이렉트 되는 코드
+      window.location.href = 'main.html';
     },
     fail(error) {
       console.log(error);
