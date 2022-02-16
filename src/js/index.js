@@ -17,5 +17,6 @@ const $form = new Form();
 $form.displayForm();
 $form.closeForm();
 // Form input Event
+$form.categoryInputException();
 $form.todoInputException();
 $form.timeInputException();

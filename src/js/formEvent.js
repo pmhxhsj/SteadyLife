@@ -1,7 +1,13 @@
-import { exceptionTodoInput, exceptionTimeInput } from './inputException.js';
+import {
+  exceptionTodoInput,
+  exceptionTimeInput,
+  exceptionCategoryInput,
+} from './inputException.js';
 
 class Form {
-  constructor(data) {}
+  constructor() {
+    this.data = [];
+  }
   displayForm() {
     document
       .querySelector('.create-list-btn')
@@ -27,18 +33,36 @@ class Form {
       });
   }
 
+  categoryInputException() {
+    document
+      .querySelector('#form-submit-button')
+      .addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const categoryValue = document.querySelector('.input-category').value;
+
+        if (exceptionCategoryInput(categoryValue)) {
+          alert('카테고리를 선택해주세요.');
+          return;
+        } else {
+          this.data.push(categoryValue);
+          return true;
+        }
+      });
+  }
+
   todoInputException() {
     document
       .querySelector('#form-submit-button')
       .addEventListener('click', (e) => {
         const inputValue = document.querySelector('.input-title').value;
 
-        e.preventDefault();
         if (exceptionTodoInput(inputValue)) {
-          return true;
-        } else {
           alert('To do를 입력해주세요.');
-          return false;
+          return;
+        } else {
+          this.data.push(inputValue);
+          return;
         }
       });
   }
@@ -49,10 +73,8 @@ class Form {
       .addEventListener('click', (e) => {
         const startTimeValue = document.querySelector('#start-time').value;
         const endTimeValue = document.querySelector('#end-time').value;
-
         console.log(startTimeValue);
         console.log(endTimeValue);
-
         if (
           exceptionTimeInput(startTimeValue) ||
           exceptionTimeInput(endTimeValue)
@@ -74,7 +96,11 @@ class Form {
 
           console.log($time);
 
-          return $time;
+          const hours = Math.floor($time / 60);
+          const minute = $time % 60;
+
+          this.data.push(`${hours}:${minute}`);
+          return;
         }
       });
   }
