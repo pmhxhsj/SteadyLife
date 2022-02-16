@@ -4,6 +4,20 @@
   font-family: 'Source Serif 4', sans-serif;
 }
 
+table tr {
+  height: 50px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+  border: none;
+  width: 100px;
+  border-radius: 10px;
+}
+
 .create-container {
   display: flex;
   justify-content: center;
@@ -37,8 +51,11 @@
 }
 
 .create-form {
-  background-color: rgb(241, 241, 241);
-  padding: 10px;
+  color: #2e3c7e;
+  background-color: #dce2f0;
+  padding: 15px;
+  height: 300px;
+  border-radius: 30px;
 }
 
 .input-time {
@@ -54,7 +71,7 @@
 }
 
 .input-title {
-  width: 100%;
+  width: 95%;
   height: 40px;
 }
 
