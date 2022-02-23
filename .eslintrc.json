@@ -5,11 +5,7 @@
     "useTabs": true
   },
   "plugins": ["prettier"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
-    "airbnb-base"
-  ],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended", "airbnb-base"],
   "rules": {
     "prettier/prettier": "error"
   }
