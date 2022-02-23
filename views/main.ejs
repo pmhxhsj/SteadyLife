@@ -1,0 +1,12 @@
+<h1>Main Page</h1>
+
+<% if(!user){ %>
+<a href="auth/google">
+  <img src="public/images/btn_google_signin_light_normal_web.png" alt=""
+/></a>
+<!-- <button style="border:none"> -->
+<!-- </buttom> -->
+<% } else { %>
+<p><%= user.displayName %>님 환영합니다😄</p>
+<a href="auth/logout">Logout</a>
+<% } %>
