@@ -4,6 +4,7 @@ const todoTaskSchema = new mongoose.Schema({
   title: String,
   startTime: String,
   endTime: String,
+  remainingTime: String,
   date: {
     type: String,
     required: true,
