@@ -24,7 +24,7 @@
               <td>Categoty</td>
               <br />
               <td colspan="3">
-                <select class="input-category" name="category">
+                <select id="todo-category-input" class="input-category" name="category">
                   <option value="" selected="selected">---선택---</option>
                   <option value="개발">개발</option>
                   <option value="독서">독서</option>
@@ -38,6 +38,7 @@
               <td>To do</td>
               <td colspan="3">
                 <input
+                  id="todo-title-input"
                   class="input-title"
                   type="text"
                   placeholder="ex) Web Development"
@@ -49,8 +50,8 @@
               <td>Time</td>
               <td>
                 <input
-                  id="start-time"
-                  class="input-time"
+                  id="todo-start-time-input"
+                  class="input-time timepicker"
                   type="time"
                   name="startTime"
                 />
@@ -58,90 +59,63 @@
               <td>~</td>
               <td>
                 <input
-                  id="end-time"
-                  class="input-time"
+                  id="todo-end-time-input"
+                  class="input-time timepicker"
                   type="time"
                   name="endTime"
                 />
               </td>
             </tr>
           </table>
-          <button type="submit" class="btn">Add</button>
+          <button id = "create-todo-btn" type="submit" class="btn">Add</button>
           <button type="button" id="form-close-button">Close</button>
         </form>
       </div>
     </div>
     <br />
-    <ul class="list-box">
-      <% var date = ""; var next_date = ""; todoTasks.forEach(tasks => { date =
-      (tasks.date).substring(0, 10); if(date != next_date){ next_date = date; %>
-      <li>
-        <div class="date"><%= date %></div>
-      </li>
-      <% } %>
-      <li class="todo-item">
-        <div class="todo-item-content" id="content">
-          <table>
-            <tr>
-              <td>Date</td>
-              <td>Category</td>
-              <td>Content</td>
-              <td>Time</td>
-            </tr>
-            <tr>
-              <td><%= date %></td>
-              <td><%= tasks.category %></td>
-              <td><%= tasks.title %></td>
-              <td><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
-            </tr>
-          </table>
-        </div>
-        <div class="edit-btn">
-          <button
-            type="button"
-            id="img"
-            onclick="location.href='/todo/edit/<%= tasks._id %>'"
+    
+    <% var date = ""; 
+       var next_date = ""; 
+       todoTasks.forEach(tasks => { 
+         date = (tasks.date).substring(0, 10); 
+        
+         if(date != next_date){ next_date = date; %>
+
+      <div class="date"><%= date %></div>
+
+    <% } %>
+
+    <table>   
+        
+      <tr>
+        <td><%= tasks.category %></td>
+        <td><%= tasks.title %></td>
+        <td><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
+        <td><%= tasks.remainingTime %></td>
+        <td><button
+          type="button"
+          id="img"
+          onclick="location.href='/todo/edit/<%= tasks._id %>'"
+        >
+          Edit
+        </button></td>
+        <td><button
+          type="button"
+          id="img"
+          onclick="location.href='/todo/remove/<%= tasks._id %>'"
           >
-            Edit
-          </button>
-          <button
-            type="button"
-            id="img"
-            onclick="location.href='/todo/remove/<%= tasks._id %>'"
-          >
-            Delete
-          </button>
-        </div>
-      </li>
-      <% }); %>
-    </ul>
+          Delete
+        </button></td>
+      </tr>
+    </table>
+    <% }); %>
+    
 
     <footer class="main-footer">
       <div id="main-footer-contents">
         <button class="create-list-btn btn-hover">Create</button>
       </div>
     </footer>
-    <script>
-      document
-        .querySelector('.create-list-btn')
-        .addEventListener('click', (e) => {
-          // e.preventDefault();
-
-          const target = document.querySelector('.to-do-create-container');
-
-          target.classList.remove('hidden');
-          target.classList.add('appear');
-        });
-
-      document
-        .querySelector('#form-close-button')
-        .addEventListener('click', (e) => {
-          // e.preventDefault();
-
-          const target = document.querySelector('.to-do-create-container');
-
-          target.classList.add('hidden');
-        });
-    </script>
+    <script type="module" src="/public/js/index.js"></script>
   </body>
 </html>
