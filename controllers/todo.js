@@ -47,15 +47,21 @@ exports.edit = function (req, res) {
 // 수정
 exports.update = function (req, res) {
   const id = req.params.id;
-  TodoTask.findByIdAndUpdate(id, { title: req.body.title }, (err) => {
-    if (err) {
-      console.log('==== Fail!! Update TodoTask ====');
-      console.error(err);
+  TodoTask.findByIdAndUpdate(
+    id,
+    { title: req.body.title, endTime: req.body.endTime },
+    (err) => {
+      if (err) {
+        console.log('==== Fail!! Update TodoTask ====');
+        console.error(err);
+      }
+      console.log('==== Success!! Update TodoTask ====');
+      console.log(
+        'id: ' + id + '\nchanged title: ' + req.body.title + req.body.endTime
+      );
+      res.redirect('/todo');
     }
-    console.log('==== Success!! Update TodoTask ====');
-    console.log('id: ' + id + '\nchanged title: ' + req.body.title);
-    res.redirect('/todo');
-  });
+  );
 };
 
 //삭제

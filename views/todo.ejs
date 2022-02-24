@@ -81,8 +81,20 @@
       <% } %>
       <li class="todo-item">
         <div class="todo-item-content" id="content">
-          &emsp;<%= tasks.category %> &emsp; &emsp;<%= tasks.title %> &emsp;
-          &emsp;<%= tasks.startTime %> &emsp; &emsp;<%= tasks.endTime %> &emsp;
+          <table>
+            <tr>
+              <td>Date</td>
+              <td>Category</td>
+              <td>Content</td>
+              <td>Time</td>
+            </tr>
+            <tr>
+              <td><%= date %></td>
+              <td><%= tasks.category %></td>
+              <td><%= tasks.title %></td>
+              <td><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
+            </tr>
+          </table>
         </div>
         <div class="edit-btn">
           <button
