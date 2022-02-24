@@ -10,22 +10,12 @@
     />
   </head>
   <body>
-    <div class="home">
-      <button type="button" id="img" onclick="location.href='/'">Home</button>
-    </div>
-    <% if(!user){ %>
-    <a href="auth/google">
-      <img src="public/images/btn_google_signin_light_normal_web.png" alt=""
-    /></a>
-    <!-- <button style="border:none"> -->
-    <!-- </buttom> -->
-    <% } else { %>
+    <h1 class="main-text">Steady Life</h1>
     <p><%= user.displayName %>님 환영합니다😄</p>
     <a href="auth/logout">Logout</a>
-    <% } %>
-    <h1 class="main-text">Steady Life</h1>
     <hr />
     <br />
+    <input type="date" />
     <div class="create-container">
       <div class="hidden to-do-create-container">
         <form action="/todo/write" method="post" class="form-box">

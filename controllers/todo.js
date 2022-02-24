@@ -1,6 +1,5 @@
 // Model
 const TodoTask = require('../models/todoTask');
-
 // KST Setting
 var moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Seoul');
@@ -10,8 +9,8 @@ moment.tz.setDefault('Asia/Seoul');
 // 첫 페이지
 exports.get = function (req, res) {
   console.log('------------!!Todo!!------------');
-  TodoTask.find({}, null, { sort: { date: -1 } }, (err, tasks) => {
-    res.render('todo', { todoTasks: tasks });
+  TodoTask.find({}, null, { sort: { date: 1 } }, (err, tasks) => {
+    res.render('todo', { todoTasks: tasks, user: req.user });
   });
 };
 
