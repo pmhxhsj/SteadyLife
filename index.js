@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-const app = express(); // 3000: Todo
-const dotenv = require('dotenv');
+const app = express();
 const passport = require('passport');
 const session = require('express-session');
 
+const dotenv = require('dotenv');
 dotenv.config();
 
 const port = process.env.PORT || 4000;
@@ -17,6 +17,8 @@ app.use(
   session({ secret: 'MySecret', resave: false, saveUninitialized: true })
 );
 
+const TodoTask = require('./models/todoTask');
+
 app.use('/public', express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,10 +28,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes/main'));
+app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
 
-const router = require('./routes/index');
-app.use(router);
+app.get('/todo', function (req, res) {
+  res.render('TodoTasks', {
+    todoTasks: res.TodoTask,
+    user: res.user,
+  });
+});
 
 mongoose.connect(
   process.env.MONGO_KEY,
