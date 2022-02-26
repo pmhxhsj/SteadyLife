@@ -7,8 +7,10 @@ const controller = require('../controllers/todo');
 // const
 // Main
 router.get('/', controller.get); // index에서 /todo 로 라우팅 해줬기 때문에 http://localhost:3000/todo/ 가 이에 해당
-
 // Write
+
+router.get('/getDate', controller.getDate);
+
 router.post('/write', controller.write); // http://localhost:3000/todo/write
 
 // Edit
