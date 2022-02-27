@@ -17,7 +17,7 @@
     <h1 class="main-text">TODO LIST</h1>
     <hr />
     <br />
-
+    
     <br />
     <ul class="list-box">
       <% var date = ""; 
@@ -38,6 +38,14 @@
             autocomplete="off"
           />
           <input
+             id="start-time"
+             class="input-time"
+             value="<%= tasks.startTime %>"
+             type="time"
+             name="startTime"
+             autocomplete="off"
+          />
+          <input
              id="end-time"
              class="input-time"
              value="<%= tasks.endTime %>"
@@ -46,7 +54,7 @@
              autocomplete="off"
           />
           <button type="submit" id="img">submit</button>
-          <button type="button" id="img" onclick="location.href='/todo'">
+          <button type="button" id="img" onclick="location.href='/todo/getDate'">
             remove
           </button>
         </form>

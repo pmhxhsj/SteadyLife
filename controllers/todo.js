@@ -30,6 +30,24 @@ exports.getDate = function (req, res) {
   });
 };
 
+const calculateTime = (time) => {
+  return time.split(':').reduce((acc, cur, idx) => {
+    if (idx === 0) return acc + Number(cur * 60);
+    else return acc + Number(cur);
+  }, 0);
+};
+
+const convertMinutesToHours = (min) => {
+  const hour =
+    String(Math.floor(min / 60)).length === 1
+      ? '0' + String(Math.floor(min / 60))
+      : String(Math.floor(min / 60));
+  const minutes =
+    String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
+
+  return hour + ':' + minutes;
+};
+
 // 작성
 exports.write = async function (req, res) {
   try {
@@ -41,26 +59,6 @@ exports.write = async function (req, res) {
       remainingTime: '',
       date: moment().format('YYYY-MM-DD'),
     });
-
-    const calculateTime = (time) => {
-      return time.split(':').reduce((acc, cur, idx) => {
-        if (idx === 0) return acc + Number(cur * 60);
-        else return acc + Number(cur);
-      }, 0);
-    };
-
-    const convertMinutesToHours = (min) => {
-      const hour =
-        String(Math.floor(min / 60)).length === 1
-          ? '0' + String(Math.floor(min / 60))
-          : String(Math.floor(min / 60));
-      const minutes =
-        String(min % 60).length === 1
-          ? '0' + String(min % 60)
-          : String(min % 60);
-
-      return hour + ':' + minutes;
-    };
 
     if (calculateTime(todoTask.startTime) < calculateTime(todoTask.endTime)) {
       todoTask.remainingTime = convertMinutesToHours(
@@ -108,9 +106,27 @@ exports.edit = function (req, res) {
 // 수정
 exports.update = function (req, res) {
   const id = req.params.id;
+  let remainingTime;
+
+  if (calculateTime(req.body.startTime) < calculateTime(req.body.endTime)) {
+    remainingTime = convertMinutesToHours(
+      calculateTime(req.body.endTime) - calculateTime(req.body.startTime)
+    );
+  } else {
+    remainingTime = convertMinutesToHours(
+      1440 -
+        (calculateTime(req.body.startTime) - calculateTime(req.body.endTime))
+    );
+  }
+
   TodoTask.findByIdAndUpdate(
     id,
-    { title: req.body.title, endTime: req.body.endTime },
+    {
+      title: req.body.title,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime,
+      remainingTime: remainingTime,
+    },
     (err) => {
       if (err) {
         console.log('Fail Update!');
