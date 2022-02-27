@@ -12,10 +12,19 @@
   <body>
     <h1 class="main-text">Steady Life</h1>
     <p><%= user.displayName %>님 환영합니다😄</p>
+    <input type="text" id="input-date"/>
+    <button type="submit" id="input-date-btn">Click</button>
+    <br />
     <a href="auth/logout">Logout</a>
     <hr />
     <br />
-    <input type="date" />
+  <!-- <form action="/todo/getDate" method="get"> -->
+  <!-- </form> -->
+
+  <form action="/todo/getDate" method="get">
+    <input type="date" id="input-date" name="date" value="<%= currentDate %>"/>
+    <button type="submit" id="input-date-btn">Click</button>
+  </form>
     <div class="create-container">
       <div class="hidden to-do-create-container">
         <form action="/todo/write" method="post" class="form-box">
@@ -73,17 +82,12 @@
       </div>
     </div>
     <br />
-    
-    <% var date = ""; 
-       var next_date = ""; 
+    <% let date = ""; 
+       let next_date = "";
+
        todoTasks.forEach(tasks => { 
-         date = (tasks.date).substring(0, 10); 
-        
-         if(date != next_date){ next_date = date; %>
-
-      <div class="date"><%= date %></div>
-
-    <% } %>
+         date = tasks.date  %>
+    
 
     <table>   
         
@@ -110,7 +114,6 @@
     </table>
     <% }); %>
     
-
     <footer class="main-footer">
       <div id="main-footer-contents">
         <button class="create-list-btn btn-hover">Create</button>
