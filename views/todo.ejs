@@ -8,23 +8,38 @@
       type="text/css"
       href="/public/style/createForm.css"
     />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/mainPageButton.css"
+   />
+   <link
+   rel="stylesheet"
+   type="text/css"
+   href="/public/style/header.css"
+  />
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="/public/style/table.css"
+  />
   </head>
   <body>
-    <h1 class="main-text">Steady Life</h1>
-    <p><%= user.displayName %>님 환영합니다😄</p>
-    <input type="text" id="input-date"/>
-    <button type="submit" id="input-date-btn">Click</button>
-    <br />
-    <a href="auth/logout">Logout</a>
+    <header class="header">
+      <h1 id="main-text">Steady Life</h1>
+
+       <a href="auth/logout"><button class="logout-btn w-btn w-btn-indigo">Logout</button></a>
+      <!-- </div> -->
+    </header>
     <hr />
     <br />
+    <form action="/todo/getDate" method="get">
+      <input type="date" id="input-date" name="date" value="<%= currentDate %>"/>
+      <button type="submit" id="input-date-btn">Click</button>
+    </form>
+    <p><%= user.displayName %>님 환영합니다😄</p>
   <!-- <form action="/todo/getDate" method="get"> -->
   <!-- </form> -->
-
-  <form action="/todo/getDate" method="get">
-    <input type="date" id="input-date" name="date" value="<%= currentDate %>"/>
-    <button type="submit" id="input-date-btn">Click</button>
-  </form>
     <div class="create-container">
       <div class="hidden to-do-create-container">
         <form action="/todo/write" method="post" class="form-box">
@@ -35,11 +50,11 @@
               <td colspan="3">
                 <select id="todo-category-input" class="input-category" name="category">
                   <option value="" selected="selected">---선택---</option>
-                  <option value="개발">개발</option>
-                  <option value="독서">독서</option>
                   <option value="공부">공부</option>
+                  <option value="독서">독서</option>
                   <option value="운동">운동</option>
                   <option value="산책">산책</option>
+                  <option value="데이트">데이트</option>
                 </select>
               </td>
             </tr>
@@ -89,11 +104,36 @@
          date = tasks.date  %>
     
 
-    <table>   
+    <table class="main-table">   
         
       <tr>
-        <td><%= tasks.category %></td>
-        <td><%= tasks.title %></td>
+        <td id="table-category">
+          <div class="content">
+          <% 
+            switch (tasks.category) {
+              case "공부": %>
+                <img src="public/images/category-icon/study-btn.png" alt="" />             
+                <% break;
+              case "운동": %>
+                <img src="public/images/category-icon/exercise-btn.png" alt="" />             
+             <% break;
+              case "산책": %>
+                <img src="public/images/category-icon/work-btn.png" alt="" />             
+             <% break;
+              case "독서": %>
+                <img src="public/images/category-icon/reading-btn.png" alt="" />             
+             <% break;
+              case "데이트": %>
+                <img src="public/images/category-icon/date-btn.png" alt="" />             
+             <% break;
+              default: 
+                break;
+               } %>
+          </div>
+        </td>
+        <td>
+          <%= tasks.title %>
+        </td>
         <td><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
         <td><%= tasks.remainingTime %></td>
         <td><button
@@ -112,6 +152,7 @@
         </button></td>
       </tr>
     </table>
+    <br />
     <% }); %>
     
     <footer class="main-footer">

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
+* {
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-text {
+  color: #1e6b7b;
+  margin-left: 30px;
+}
