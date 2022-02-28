@@ -2,8 +2,9 @@
 * {
   font-family: 'Source Serif 4', sans-serif;
 }
+
 .main-container {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,19 +12,18 @@
 }
 
 .main-section {
-  padding: 30px;
-  width: 250px;
-  height: 300px;
-  border-radius: 30px;
+  height: 46px;
   background-color: #000033;
   text-align: center;
 }
 
-#main-title {
-  color: white;
-  font-size: 40px;
+#main-logo {
+  /* height: 30vh; */
+  text-align: center;
+  /* margin-top: 200px; */
 }
 
-#login-img {
-  border-radius: 20px;
+#main-logo img {
+  /* border: #000033 solid 15px;
+  border-radius: 10px; */
 }
