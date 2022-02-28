@@ -38,8 +38,7 @@
       <button type="submit" id="input-date-btn">Click</button>
     </form>
     <p><%= user.displayName %>님 환영합니다😄</p>
-  <!-- <form action="/todo/getDate" method="get"> -->
-  <!-- </form> -->
+
     <div class="create-container">
       <div class="hidden to-do-create-container">
         <form action="/todo/write" method="post" class="form-box">
@@ -102,34 +101,30 @@
 
        todoTasks.forEach(tasks => { 
          date = tasks.date  %>
-    
-
+  
+        
     <table class="main-table">   
         
       <tr>
         <td id="table-category">
-          <div class="content">
-          <% 
-            switch (tasks.category) {
+        <% switch (tasks.category) {
               case "공부": %>
-                <img src="public/images/category-icon/study-btn.png" alt="" />             
+                <img src="https://ifh.cc/g/HXdWx3.png" alt="" />             
                 <% break;
               case "운동": %>
-                <img src="public/images/category-icon/exercise-btn.png" alt="" />             
+                <img src="https://ifh.cc/g/NOwgCW.png" alt="" />             
              <% break;
               case "산책": %>
-                <img src="public/images/category-icon/work-btn.png" alt="" />             
+                <img src="https://ifh.cc/g/0ugygb.png" alt="" />             
              <% break;
               case "독서": %>
-                <img src="public/images/category-icon/reading-btn.png" alt="" />             
+                <img src="https://ifh.cc/g/omXsZM.png" alt="" />             
              <% break;
               case "데이트": %>
-                <img src="public/images/category-icon/date-btn.png" alt="" />             
+                <img src="https://ifh.cc/g/HXdWx3.png" alt="" />             
              <% break;
               default: 
-                break;
-               } %>
-          </div>
+                break; } %>
         </td>
         <td>
           <%= tasks.title %>
