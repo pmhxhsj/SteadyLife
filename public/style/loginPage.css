@@ -13,8 +13,14 @@
 
 .main-section {
   height: 46px;
-  background-color: #000033;
+  /* background-color: #000033; */
   text-align: center;
+}
+
+.main-section img {
+  width: 250px;
+  border: solid 1px gray;
+  border-radius: 10px;
 }
 
 #main-logo {
