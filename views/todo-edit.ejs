@@ -3,23 +3,34 @@
   <head>
     <title>TODO EDIT</title>
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="/public/stylesheets/todo.css"
-    />
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/createForm.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/mainPageButton.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/header.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/table.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/style/style.css"
+  />  
   </head>
   <body>
-    <div class="home">
-      <button type="button" id="img" onclick="location.href='/'">
-        <img src="../../public/images/home.png" width="70" />
-      </button>
-    </div>
-    <h1 class="main-text">TODO LIST</h1>
-    <hr />
-    <br />
-    
-    <br />
-    <ul class="list-box">
+    <div class="edit-container">
+      
       <% var date = ""; 
          var next_date = ""; 
          todoTasks.forEach(tasks => { 
@@ -28,39 +39,65 @@
              next_date = date; 
              %>
       <% } if(tasks._id == idTask) { %>
-      <li class="todo-item">
-        <form action="/todo/update/<%= tasks._id %>" method="post">
-          <input
-            type="text"
-            value="<%= tasks.title %>"
-            name="title"
-            id="edit-box"
-            autocomplete="off"
-          />
-          <input
-             id="start-time"
-             class="input-time"
-             value="<%= tasks.startTime %>"
-             type="time"
-             name="startTime"
-             autocomplete="off"
-          />
-          <input
-             id="end-time"
-             class="input-time"
-             value="<%= tasks.endTime %>"
-             type="time"
-             name="endTime"
-             autocomplete="off"
-          />
-          <button type="submit" id="img">submit</button>
-          <button type="button" id="img" onclick="location.href='/todo/getDate'">
-            remove
-          </button>
-        </form>
-      </li>
+      <div class="edit-form">
+        <div class="edit-form-table">
+          <form class="edit-form-box" action="/todo/update/<%= tasks._id %>" method="post">
+            <table>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    value="<%= tasks.title %>"
+                    name="title"
+                    id="todo-title-input"
+                    class="input-title"
+                    autocomplete="off"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    id="todo-start-time-input"
+                    class="input-time timepicker"
+                    value="<%= tasks.startTime %>"
+                    type="time"
+                    name="startTime"
+                    autocomplete="off"
+                  />
+                </td>
+                <td>
+                  <input
+                    id="todo-end-time-input"
+                    class="input-time timepicker"
+                    value="<%= tasks.endTime %>"
+                    type="time"
+                    name="endTime"
+                    autocomplete="off"
+                  />
+                </td>  
+              </tr>
+            </table>
 
+            <div class="form-button-container">
+              <div></div>
+              <button type="submit" class="w-btn w-btn-indigo edit-button" id="img">Edit</button>
+              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:tomato"id="img" onclick="location.href='/todo/remove/<%= tasks._id %>'">
+                Remove
+              </button>
+              <div></div>
+            </div>
+            <div class="form-button-container">
+              <div></div>
+              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:violet">성공!</button>
+              <button type="button" class="w-btn w-btn-indigo edit-button" onclick="location.href='/todo/'">뒤로가기</button>
+              <div></div>
+            </div>
+          </form>
+          
+        </div>
+      </div>
       <% }}); %>
-    </ul>
+    </div>
   </body>
 </html>
