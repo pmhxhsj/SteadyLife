@@ -10,7 +10,7 @@ body {
   margin: 0px;
   /* background-color: #ffce9e; */
 
-  background-color: #dfdfdf;
+  /* background-color: #dfdfdf; */
 }
 
 #datepicker {
@@ -18,10 +18,8 @@ body {
   height: 40px;
   border-radius: 10px;
   border: none;
-  background-color: #dfdfdf;
-  font-size: 16px;
-  font-weight: bold;
-  /* color: rgb(113, 113, 223); */
+  font-size: 15px;
+  color: rgb(21, 53, 139);
 }
 
 .todo-title {
@@ -33,7 +31,7 @@ body {
   border-radius: 30px;
   padding: 30px;
   overflow-y: auto;
-  background-color: rgb(255, 255, 255, 0.7);
+  background-color: rgba(179, 218, 255, 0.3);
   height: 500px;
   width: 400px;
   margin: auto;
@@ -64,14 +62,45 @@ body {
 }
 
 .change-date {
-  background-color: #dfdfdf;
+  background-color: white;
   border: none;
   font-size: 14px;
-  color: gray;
+  color: rgb(21, 53, 139);
 }
 
 #create-btn {
   position: absolute;
   top: 500px;
   left: 360px;
+}
+
+#edit-text {
+  color: rgb(21, 53, 139);
+}
+
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+}
+
+.edit-form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 350px;
+  border-radius: 30px;
+  background-color: rgba(179, 218, 255, 0.7);
+}
+
+.edit-button {
+  height: 30px;
+}
+
+.form-button-container {
+  display: flex;
+  /* flex-direction: column; */
 }

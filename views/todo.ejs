@@ -48,69 +48,85 @@
         </div>
         <div class="end-header">
         <a href="/auth/logout">
-          <button class="logout-btn sub-header-btn">Logout</button>
+          <button class="logout-btn w-btn w-btn-indigo">Logout</button>
         </a>
         </div>
       </div>
 
-      <div class="sub-header">
-
-        <div class="header-main-btn">
-          <button id="todolist-button" class="sub-header-btn">
-            Todo
-          </button>
-          <button id="memo-button" class="sub-header-btn">
-            Memo
-          </button>
+      <div class="date-container">
+        <div></div>
+        <div class="date-move">
+          <div></div>
+          <div>
+            <button class="change-date" id="yesterday-btn"><</button>
+          </div>
+          <div>
+            <div class="main-page-item">
+              <form action="/todo/getDate" method="get" name="getDate">
+                <input type="text" id="datepicker" name="date" value="<%= currentDate %>"/>
+              </form>  
+            </div> 
+          </div>
+          <div>  
+            <button class="change-date" id="nextday-btn">></button>
+          </div>
+          <div></div>
         </div>
+        <div></div>
       </div>
-
+      <!-- <hr> -->
       <!-- <div class="sub-header-logout-btn"> -->
 
       <!-- </div> -->
     </header>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <br>
+    <div class="sub-header">
+
+      <div class="header-main-btn">
+        <button id="todolist-button" class="sub-header-btn">
+          Todo
+        </button>
+        <button id="memo-button" class="sub-header-btn">
+          Memo
+        </button>
+      </div>
+      
+    </div>
+    <br>
     <section class="container">
       <div class="create-container">
         <div class="hidden to-do-create-container">
           <form action="/todo/write" method="post" class="form-box">
             <table class="input-table">
               <tr style="height: 50px">
-                <td>Categoty</td>
+                <td></td>
                 <br />
                 <td colspan="3">
                   <select id="todo-category-input" class="input-category" name="category">
-                    <option value="" selected="selected">---선택---</option>
+                    <option value="" disabled selected="selected">Category</option>
                     <option value="공부">공부</option>
                     <option value="독서">독서</option>
                     <option value="운동">운동</option>
                     <option value="산책">산책</option>
                     <option value="데이트">데이트</option>
+                    <option value="기타">기타</option>
                   </select>
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td>To do</td>
+                <td></td>
                 <td colspan="3">
                   <input
                     id="todo-title-input"
                     class="input-title"
                     type="text"
-                    placeholder="ex) Web Development"
+                    placeholder="Title"
                     name="title"
                   />
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td>Time</td>
+                <td></td>
                 <td>
                   <input
                     id="todo-start-time-input"
@@ -130,29 +146,16 @@
                 </td>
               </tr>
             </table>
-            <button id = "create-todo-btn" type="submit" class="btn">Add</button>
-            <button type="button" id="form-close-button">Close</button>
+            <br>
+            <div class="form-button-container">
+              <div></div>
+              <button id="create-todo-btn" type="submit" class="w-btn w-btn-indigo">Add</button>
+              <button type="button" id="form-close-button" class="w-btn w-btn-indigo">Close</button>
+              <div></div>
+            </div>
           </form>
         </div>
       </div>
-
-      <div class="date-move">
-        <div id="item1">
-          <button id="yesterday-btn"><</button>
-        </div>
-        <div id="item2">
-          <div class="main-page-item">
-            <form action="/todo/getDate" method="get" name="getDate">
-              <input type="text" id="datepicker" name="date" value="<%= currentDate %>"/>
-            </form>  
-          </div> 
-        </div>
-        <div id="item3">  
-          <button id="nextday-btn">></button>
-        </div>
-      </div>
-      <br />
-      <br />
       <% let date = ""; 
         let next_date = "";
         
@@ -164,19 +167,19 @@
           <td id="table-category">
           <% switch (tasks.category) {
                 case "공부": %>
-                  <img src="https://ifh.cc/g/HXdWx3.png" alt="" />             
+                  📚            
                   <% break;
-                case "운동": %>
-                  <img src="https://ifh.cc/g/NOwgCW.png" alt="" />             
+                case "운동": %>  
+                  💪🏻       
               <% break;
                 case "산책": %>
-                  <img src="https://ifh.cc/g/0ugygb.png" alt="" />             
+                  🚶🏻‍♀️           
               <% break;
                 case "독서": %>
-                  <img src="https://ifh.cc/g/omXsZM.png" alt="" />             
+                  📖           
               <% break;
                 case "데이트": %>
-                  <img src="https://ifh.cc/g/HXdWx3.png" alt="" />             
+                  ❣️            
               <% break;
                 default: 
                   break; } %>
@@ -191,7 +194,9 @@
       <br />
       <% }); %>
 
-      <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">Create</button>
+      <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
+
+      
 
     </section>
     <script type="module" src="/public/js/index.js"></script>
