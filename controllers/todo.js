@@ -74,7 +74,7 @@ exports.write = async function (req, res) {
     }
 
     const validations = [
-      todoTask.category.length > 0,
+      todoTask.category !== undefined,
       todoTask.title.length > 0,
       todoTask.startTime.length === 5,
       todoTask.endTime.length === 5,
