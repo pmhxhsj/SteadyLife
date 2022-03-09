@@ -11,7 +11,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/public/style/mainPageButton.css"
+      href="/public/style/button.css"
     />
     <link
       rel="stylesheet"
@@ -83,11 +83,11 @@
     <div class="sub-header">
 
       <div class="header-main-btn">
-        <button id="todolist-button" class="sub-header-btn">
+        <button id="todolist-button" class="sub-header-btn focus">
           Todo
         </button>
-        <button id="memo-button" class="sub-header-btn">
-          Memo
+        <button id="myPage-button" class="sub-header-btn">
+          MyPage
         </button>
       </div>
       
@@ -196,8 +196,14 @@
 
       <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
 
-      
+    </section>
 
+
+    <section>
+      <br>
+      <div class="mypage-container hidden">
+        <%= user.displayName  %>님 환영합니다.
+      </div>
     </section>
     <script type="module" src="/public/js/index.js"></script>
   </body>
