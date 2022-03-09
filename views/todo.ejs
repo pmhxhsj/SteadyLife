@@ -94,6 +94,7 @@
     </div>
     <br>
     <section class="container">
+      <div class="container-scroll">
       <div class="create-container">
         <div class="hidden to-do-create-container">
           <form action="/todo/write" method="post" class="form-box">
@@ -103,7 +104,7 @@
                 <br />
                 <td colspan="3">
                   <select id="todo-category-input" class="input-category" name="category">
-                    <option value="" disabled selected="selected">Category</option>
+                    <option value="Category" disabled selected="selected">Category</option>
                     <option value="공부">공부</option>
                     <option value="독서">독서</option>
                     <option value="운동">운동</option>
@@ -158,8 +159,28 @@
       </div>
       <% let date = ""; 
         let next_date = "";
-        
+
+        const calculateTime = (time) => {
+          return time.split(':').reduce((acc, cur, idx) => {
+            if (idx === 0) return acc + Number(cur * 60);
+            else return acc + Number(cur);
+          }, 0);
+         };
+
+         const convertMinutesToHours = (min) => {
+          const hour =
+            String(Math.floor(min / 60)).length === 1
+              ? '0' + String(Math.floor(min / 60))
+              : String(Math.floor(min / 60));
+          const minutes =
+            String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
+
+          return hour + ':' + minutes;
+         };
+
+        let time = 0;
         todoTasks.forEach(tasks => { 
+          time += calculateTime(tasks.remainingTime);
           date = tasks.date  %>
         
       <table class="main-table">   
@@ -184,25 +205,61 @@
                 default: 
                   break; } %>
           </td>
-          <td id="table-title" class="table-title1">
+          <td id="table-title" class="table-title">
             <%= tasks.title %>
           </td>
-          <td id="table-time" class="table-time1"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
+          <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
         
         </tr>
       </table>
       <br />
       <% }); %>
+      
+      <table id="time-article">
+        <tr>
+          <td>
+            Goal Time :
+          </td>
+          <td>
+            08:00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Total Time :</span>
+          </td>
+          <td>
+            <%= convertMinutesToHours(time) %>
+          </td>
+        </tr>
+        <tr>
+          <% if(calculateTime('08:00')-time > 0) { %>
+          <td>
+            remaining :
+          </td>
+          <td>
+            <span style="color: blue"><%= convertMinutesToHours(calculateTime('08:00')-time) %></span>
+          </td>
+          <% } else { %>
+            <td>
+            remaining :
+          </td>
+          <td>
+            <span style="color: tomato">Success!</span>
+          </td> 
 
+          <% } %>
+        </tr>
+      </table>
       <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
-
+      </div>
     </section>
 
 
     <section>
       <br>
       <div class="mypage-container hidden">
-        <%= user.displayName  %>님 환영합니다.
+        
       </div>
     </section>
     <script type="module" src="/public/js/index.js"></script>
