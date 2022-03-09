@@ -15,6 +15,7 @@
 
 ## 🔥요구사항 02/23🔥
 
+- 순수 html, css, js를 사용하여 개발(No FrameWork) [👍🏼]
 - Google OAuth 사용하여 로그인 [👍🏼]
 - 사용자 이름으로 메인 페이지에서 환영해줌 [👍🏼]
 - 백엔드로 nodejs, express, mongoDB를 사용 [👍🏼]
