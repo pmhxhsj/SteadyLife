@@ -11,7 +11,9 @@ const currentTime = () => {
 const displayTodoCreateForm = () => {
   document.querySelector('.create-list-btn').addEventListener('click', (e) => {
     const target = document.querySelector('.to-do-create-container');
+    const timeArticle = document.querySelector('#time-article-container');
 
+    timeArticle.classList.add('hidden');
     target.classList.remove('hidden');
     target.classList.add('appear');
   });
