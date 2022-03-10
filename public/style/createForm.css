@@ -1,94 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap');
-
-* {
-  font-family: 'Source Serif 4', sans-serif;
-}
-
-table tr {
-  height: 50px;
-}
-
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  text-align: center;
-  border: none;
-  width: 100px;
-  border-radius: 10px;
-}
-
-.create-container {
-  display: flex;
-  justify-content: center;
-}
-
-.input-table {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.to-do-create-container {
-  text-align: center;
-  position: fixed;
-  bottom: 80px;
-  width: 60%;
-}
-
-#form-close-button {
-  width: 20%;
-  background-color: red;
-  color: white;
-  border: none;
-}
-
-.memo-create-container {
-  text-align: center;
-  position: fixed;
-  bottom: 70px;
-  width: 100%;
-}
-
-.create-form {
-  color: #2e3c7e;
-  background-color: #dce2f0;
-  padding: 15px;
-  height: 300px;
-  border-radius: 30px;
-}
-
-.input-time {
-  width: 100px;
-  height: 20px;
-}
-
-.create-form input {
-  text-align: center;
-  border-radius: 10px;
-  border: none;
-  margin: 5px;
-}
-
-.input-title {
-  width: 95%;
-  height: 40px;
-}
-
-.create-form button {
-  margin: 20px 5px;
-  border: solid black 1px;
-  color: black;
-  width: 100px;
-  border-radius: 10px;
-  background-color: white;
-}
-
-#form-submit-button {
-  background-color: #111d5e;
-  color: white;
-  width: 60%;
-}
+/* hidden, appear, focus css */
 
 .hidden {
   display: none;
@@ -100,6 +10,63 @@ select {
   animation-fill-mode: forwards;
 }
 
+.focus {
+  text-decoration: underline;
+}
+
+/* table css */
+
+.input-table tr {
+  height: 30px;
+}
+
+.main-table tr {
+  height: 50px;
+}
+
+/* create form css */
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: rgba(179, 218, 255, 0.7) 1px solid;
+}
+
+.form-box {
+  margin-top: 150px;
+  width: 400px;
+  height: 300px;
+  border-radius: 30px;
+  background-color: rgba(7, 8, 56, 0.3);
+}
+
+.to-do-create-container {
+  text-align: center;
+  position: fixed;
+  height: 100%;
+  width: 60%;
+}
+
+.input-time {
+  width: 100px;
+  height: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  border: rgba(179, 218, 255, 0.7) 1px solid;
+}
+
+.input-title {
+  width: 95%;
+  height: 40px;
+  border-radius: 10px;
+  border: rgba(179, 218, 255, 0.7) 1px solid;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -107,4 +74,29 @@ select {
   to {
     opacity: 1;
   }
+}
+
+/* create form button css */
+
+.form-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-button-container div {
+  flex: 1;
+}
+.form-button-container button {
+  margin: 10px;
+  flex: 1;
+}
+
+#create-todo-btn {
+  height: 30px;
+}
+
+#form-close-button {
+  height: 30px;
+  color: red;
 }
