@@ -2,20 +2,6 @@ table {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  /* border-collapse: collapse; */
-}
-
-td {
-  vertical-align: middle;
-}
-
-#table-category {
-  color: tomato;
-}
-
-#table-category img {
-  width: 30px;
-  vertical-align: middle;
 }
 
 .main-table {
@@ -25,19 +11,10 @@ td {
   border-radius: 10px;
 }
 
-.table-tr {
-  display: flex;
-  align-items: center;
-}
-
-#table-category {
-  flex: 1;
-}
-
 #table-title {
   flex: 3;
-  font-size: 16px;
   text-align: left;
+  font-size: 16px;
   margin-left: 10px;
 }
 
@@ -45,18 +22,6 @@ td {
   font-size: 12px;
   color: gray;
   flex: 2;
-}
-
-.table-category1 {
-  vertical-align: middle;
-}
-
-.table-title1 {
-  vertical-align: middle;
-}
-
-.table-time1 {
-  vertical-align: middle;
 }
 
 .main-table:hover {

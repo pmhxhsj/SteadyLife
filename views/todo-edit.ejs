@@ -15,11 +15,6 @@
   <link
     rel="stylesheet"
     type="text/css"
-    href="/public/style/header.css"
-  />
-  <link
-    rel="stylesheet"
-    type="text/css"
     href="/public/style/table.css"
   />
   <link
@@ -32,7 +27,8 @@
     <div class="edit-container">
       
       <% var date = ""; 
-         var next_date = ""; 
+         var next_date = "";
+
          todoTasks.forEach(tasks => { 
            date = (tasks.date).substring(0, 10); 
            if(date != next_date){ 
@@ -78,7 +74,7 @@
                 </td>  
               </tr>
             </table>
-
+            <br>
             <div class="form-button-container">
               <div></div>
               <button type="submit" class="w-btn w-btn-indigo edit-button" id="img">Edit</button>
@@ -89,8 +85,8 @@
             </div>
             <div class="form-button-container">
               <div></div>
-              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:violet">성공!</button>
-              <button type="button" class="w-btn w-btn-indigo edit-button" onclick="location.href='/todo/'">뒤로가기</button>
+              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:violet">Success!</button>
+              <button type="button" class="w-btn w-btn-indigo edit-button" onclick="location.href='/todo/'">Back</button>
               <div></div>
             </div>
           </form>
