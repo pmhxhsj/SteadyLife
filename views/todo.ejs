@@ -11,7 +11,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/public/style/button.css"
+      href="/public/style/mainPageButton.css"
     />
     <link
       rel="stylesheet"
@@ -95,7 +95,6 @@
     <br>
     <section class="container">
       <div class="container-scroll">
-      <div class="create-container">
         <div class="hidden to-do-create-container">
           <form action="/todo/write" method="post" class="form-box">
             <table class="input-table">
@@ -156,10 +155,10 @@
             </div>
           </form>
         </div>
-      </div>
-      <% let date = ""; 
+      
+        <% let date = ""; 
         let next_date = "";
-
+      
         const calculateTime = (time) => {
           return time.split(':').reduce((acc, cur, idx) => {
             if (idx === 0) return acc + Number(cur * 60);
@@ -178,81 +177,126 @@
           return hour + ':' + minutes;
          };
 
-        let time = 0;
-        todoTasks.forEach(tasks => { 
-          time += calculateTime(tasks.remainingTime);
+        let studyTime = 0;
+        let restTime = 0;
+
+        todoTasks.forEach(ele => {
+          if(ele.category === "공부" || ele.category === "독서"){
+            studyTime += calculateTime(ele.remainingTime);
+          } else {
+            restTime += calculateTime(ele.remainingTime);
+          }
+        });
+
+        todoTasks.forEach(tasks => {
           date = tasks.date  %>
         
-      <table class="main-table">   
-        <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
-          <td id="table-category">
-          <% switch (tasks.category) {
-                case "공부": %>
-                  📚            
-                  <% break;
-                case "운동": %>  
-                  💪🏻       
-              <% break;
-                case "산책": %>
-                  🚶🏻‍♀️           
-              <% break;
-                case "독서": %>
-                  📖           
-              <% break;
-                case "데이트": %>
-                  ❣️            
-              <% break;
-                default: 
-                  break; } %>
-          </td>
-          <td id="table-title" class="table-title">
-            <%= tasks.title %>
-          </td>
-          <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
-        
-        </tr>
-      </table>
-      <br />
-      <% }); %>
-      
-      <table id="time-article">
-        <tr>
-          <td>
-            Goal Time :
-          </td>
-          <td>
-            08:00
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span>Total Time :</span>
-          </td>
-          <td>
-            <%= convertMinutesToHours(time) %>
-          </td>
-        </tr>
-        <tr>
-          <% if(calculateTime('08:00')-time > 0) { %>
-          <td>
-            remaining :
-          </td>
-          <td>
-            <span style="color: blue"><%= convertMinutesToHours(calculateTime('08:00')-time) %></span>
-          </td>
-          <% } else { %>
-            <td>
-            remaining :
-          </td>
-          <td>
-            <span style="color: tomato">Success!</span>
-          </td> 
-
-          <% } %>
-        </tr>
-      </table>
-      <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
+          <div id="time-article-container" class="hidden">
+          <div class="time-article-view">
+            <table id="time-article">
+              <tr>
+                <td>
+                  ✔︎ 목표 시간 : 
+                </td>
+                <td>
+                  8시간
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span>✔︎ 공부 시간 : </span>
+                </td>
+                <td>
+                  <%= Math.floor(studyTime/60) %>시간 <%= studyTime%60 %>분
+                </td>
+              </tr>
+              
+                <% if(calculateTime('08:00')-studyTime > 0) { %>
+              <tr>
+                <td>
+                  ✔︎ 남은 시간 :
+                </td>
+                <td>
+                  <span style="color: tomato"><%= Math.floor((calculateTime('08:00')-studyTime)/60) %>시간
+                    <%= (calculateTime('08:00')-studyTime)%60 %>분</span>
+                </td>
+              <tr>
+                <td>
+                  ✔︎ 휴식 시간 :
+                </td>
+                <td>
+                  <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
+                </td>
+              </tr>
+                <% } else { %>
+              <tr>
+                <td>
+                  ✔︎ 휴식 시간 :
+                </td>
+                <td>
+                  <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
+                </td>
+              </tr>
+                <td colspan="3" style="text-align: center;">
+                  <span style="color: tomato;">🔥 Today Success 🔥</span>
+                </td>
+              </tr>
+                <% } %>
+              <tr style="height: 50px;">
+                <% let str; %>
+                <% if(studyTime < 480) { 
+                  const turtleTime = Math.floor(studyTime / 30);
+                   str = '🪵🪵🪵🪵🪵🪵🪵🪵🪵🪵'.split('');
+                   for(let i = 0; i < turtleTime; i++) {
+                    str[i] = '🌳';
+                   }
+                   str = str.join('');
+                  } else {
+                   str = '🌳🐢🌴'
+                  }
+                %>
+                  <td colspan="2"><%= str %></td>
+              </tr>
+            </table>
+            <br />
+            <button id="time-article-close-button" class="w-btn w-btn-indigo edit-button" style="color: tomato;">Close</button>  
+          </div>
+        </div>
+        <table class="main-table">   
+          <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
+            <td id="table-category">
+            <% switch (tasks.category) {
+                  case "공부": %>
+                    📚            
+                    <% break;
+                  case "운동": %>  
+                    💪🏻       
+                <% break;
+                  case "산책": %>
+                    🚶🏻‍♀️           
+                <% break;
+                  case "독서": %>
+                    📖           
+                <% break;
+                  case "데이트": %>
+                    ❣️            
+                <% break;
+                  default: 
+                    break; } %>
+            </td>
+            <td id="table-title" class="table-title">
+              <%= tasks.title %>
+            </td>
+            <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
+          
+          </tr>
+        </table>
+        <br />
+        <% }); %>
+        <button id="statistics" class="w-btn w-btn-indigo">Today</button>
       </div>
+      <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
     </section>
 
 
