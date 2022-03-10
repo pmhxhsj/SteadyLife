@@ -1,33 +1,37 @@
 .header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 
-#main-text {
-  font-size: 25px;
-  font-weight: 200;
-  color: rgb(112, 112, 112);
-}
-
-.sub-header {
-  display: flex;
-  align-items: center;
-}
-
-.sub-header div {
+.start-header {
   flex: 1;
 }
 
+.main-text-container {
+  flex: 5;
+}
+
+.end-header {
+  flex: 1;
+}
+
+#main-text {
+  font-size: 33px;
+  font-weight: 200;
+  color: rgb(7, 33, 102);
+}
+
+.logout-btn {
+  width: 100px;
+  height: 30px;
+}
+
 .sub-header-btn {
-  width: 60px;
-  margin: 5px;
+  background-color: white;
   border: none;
-  background-color: #dfdfdf;
-  color: rgb(78, 78, 78);
 }
 
 .sub-header-btn:hover {
