@@ -11,9 +11,17 @@ table {
   border-radius: 10px;
 }
 
+.table-tr {
+  display: flex;
+  align-items: center;
+}
+
+#table-category {
+  flex: 1;
+}
+
 #table-title {
   flex: 3;
-  text-align: left;
   font-size: 16px;
   margin-left: 10px;
 }
