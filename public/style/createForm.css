@@ -38,7 +38,6 @@ select {
 }
 
 .form-box {
-  margin-top: 150px;
   width: 400px;
   height: 300px;
   border-radius: 30px;
@@ -46,8 +45,9 @@ select {
 }
 
 .to-do-create-container {
+  position: absolute;
   text-align: center;
-  position: fixed;
+  top: 180px;
   height: 100%;
   width: 60%;
 }
