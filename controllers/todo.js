@@ -4,7 +4,6 @@ const moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Seoul');
 
 exports.get = function (req, res) {
-  console.log(req.user);
   TodoTask.find(
     { date: moment().format('YYYY-MM-DD'), userID: req.user.id },
     null,
@@ -14,6 +13,7 @@ exports.get = function (req, res) {
         todoTasks: tasks,
         user: req.user,
         currentDate: moment().format('YYYY-MM-DD'),
+        today: moment().format('YYYY-MM-DD'),
       });
     }
   );
@@ -29,6 +29,7 @@ exports.getDate = function (req, res) {
         todoTasks: tasks,
         user: req.user,
         currentDate: req.query.date,
+        today: moment().format('YYYY-MM-DD'),
       });
     }
   );
