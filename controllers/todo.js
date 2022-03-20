@@ -33,24 +33,6 @@ exports.getDate = function (req, res) {
   );
 };
 
-const calculateTime = (time) => {
-  return time.split(':').reduce((acc, cur, idx) => {
-    if (idx === 0) return acc + Number(cur * 60);
-    else return acc + Number(cur);
-  }, 0);
-};
-
-const convertMinutesToHours = (min) => {
-  const hour =
-    String(Math.floor(min / 60)).length === 1
-      ? '0' + String(Math.floor(min / 60))
-      : String(Math.floor(min / 60));
-  const minutes =
-    String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
-
-  return hour + ':' + minutes;
-};
-
 exports.write = async function (req, res) {
   try {
     const todoTask = new TodoTask({
@@ -123,6 +105,7 @@ exports.update = function (req, res) {
     id,
     {
       title: req.body.title,
+      category: req.body.category,
       startTime: req.body.startTime,
       endTime: req.body.endTime,
       remainingTime: remainingTime,
@@ -149,3 +132,21 @@ exports.remove = function (req, res) {
     res.redirect('/todo');
   });
 };
+
+function calculateTime(time) {
+  return time.split(':').reduce((acc, cur, idx) => {
+    if (idx === 0) return acc + Number(cur * 60);
+    else return acc + Number(cur);
+  }, 0);
+}
+
+function convertMinutesToHours(min) {
+  const hour =
+    String(Math.floor(min / 60)).length === 1
+      ? '0' + String(Math.floor(min / 60))
+      : String(Math.floor(min / 60));
+  const minutes =
+    String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
+
+  return hour + ':' + minutes;
+}
