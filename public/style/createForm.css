@@ -48,8 +48,6 @@ select {
   position: absolute;
   text-align: center;
   top: 180px;
-  height: 100%;
-  width: 60%;
 }
 
 .input-time {
