@@ -24,17 +24,12 @@
   />  
   </head>
   <body>
-    <div class="edit-container">
-      
-      <% var date = ""; 
-         var next_date = "";
 
-         todoTasks.forEach(tasks => { 
-           date = (tasks.date).substring(0, 10); 
-           if(date != next_date){ 
-             next_date = date; 
-             %>
-      <% } if(tasks._id == idTask) { %>
+    <div class="edit-container">
+  <% 
+     todoTasks.forEach(tasks => { 
+      let date = (tasks.date).substring(0, 10); 
+      if(tasks._id == idTask) { %>
       <div class="edit-form">
         <div class="edit-form-table">
           <form class="edit-form-box" action="/todo/update/<%= tasks._id %>" method="post">
@@ -126,16 +121,16 @@
             <br>
             <div class="form-button-container">
               <div></div>
-              <button type="submit" class="w-btn w-btn-indigo edit-button" id="img">Edit</button>
-              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:tomato"id="img" onclick="location.href='/todo/remove/<%= tasks._id %>'">
+              <button type="submit" class="w-btn w-btn-indigo standard-btn" id="img">Edit</button>
+              <button type="button" class="w-btn w-btn-indigo standard-btn" style="color:tomato"id="img" onclick="location.href='/todo/remove/<%= tasks._id %>'">
                 Remove
               </button>
               <div></div>
             </div>
             <div class="form-button-container">
               <div></div>
-              <button type="button" class="w-btn w-btn-indigo edit-button" style="color:violet">Success!</button>
-              <button type="button" class="w-btn w-btn-indigo edit-button" onclick="location.href='/todo/'">Back</button>
+              <button type="button" class="w-btn w-btn-indigo standard-btn" style="color:violet">Success!</button>
+              <button type="button" class="w-btn w-btn-indigo standard-btn" onclick="location.href='/todo/'">Back</button>
               <div></div>
             </div>
           </form>
