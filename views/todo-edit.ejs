@@ -41,6 +41,55 @@
             <table>
               <tr>
                 <td colspan="2">
+                  <select id="todo-category-input" class="input-category" name="category" autocomplete="off">
+                    <% switch (tasks.category) {
+                      case "공부": %>
+                      <option value="공부" selected>공부</option>
+                      <option value="독서">독서</option>
+                      <option value="운동">운동</option>
+                      <option value="산책">산책</option>
+                      <option value="데이트">데이트</option>
+                      <option value="기타">기타</option>            
+                        <% break;
+                      case "운동": %>
+                      <option value="공부">공부</option>
+                      <option value="독서">독서</option>
+                      <option value="운동" selected>운동</option>
+                      <option value="산책">산책</option>
+                      <option value="데이트">데이트</option>
+                      <option value="기타">기타</option>                 
+                    <% break;
+                      case "산책": %>
+                      <option value="공부">공부</option>
+                      <option value="독서">독서</option>
+                      <option value="운동">운동</option>
+                      <option value="산책" selected>산책</option>
+                      <option value="데이트">데이트</option>
+                      <option value="기타">기타</option>  
+                    <% break;
+                      case "독서": %>
+                      <option value="공부">공부</option>
+                      <option value="독서" selected>독서</option>
+                      <option value="운동">운동</option>
+                      <option value="산책">산책</option>
+                      <option value="데이트">데이트</option>
+                      <option value="기타">기타</option>            
+                    <% break;
+                      case "데이트": %>
+                      <option value="공부">공부</option>
+                      <option value="독서">독서</option>
+                      <option value="운동">운동</option>
+                      <option value="산책">산책</option>
+                      <option value="데이트" selected>데이트</option>
+                      <option value="기타">기타</option>         
+                    <% break;
+                      default: 
+                        break; } %>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
                   <input
                     type="text"
                     value="<%= tasks.title %>"
