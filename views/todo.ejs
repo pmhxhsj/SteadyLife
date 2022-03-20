@@ -75,10 +75,6 @@
         </div>
         <div></div>
       </div>
-      <!-- <hr> -->
-      <!-- <div class="sub-header-logout-btn"> -->
-
-      <!-- </div> -->
     </header>
     <br>
     <div class="sub-header">
@@ -192,6 +188,37 @@
         todoTasks.forEach(tasks => {
           date = tasks.date  %>
         
+        <table class="main-table">   
+          <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
+            <td id="table-category">
+            <% switch (tasks.category) {
+                  case "공부": %>
+                    📚            
+                    <% break;
+                  case "운동": %>  
+                    💪🏻       
+                <% break;
+                  case "산책": %>
+                    🚶🏻‍♀️           
+                <% break;
+                  case "독서": %>
+                    📖           
+                <% break;
+                  case "데이트": %>
+                    ❣️            
+                <% break;
+                  default: 
+                    break; } %>
+            </td>
+            <td id="table-title" class="table-title">
+              <%= tasks.title %>
+            </td>
+            <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
+          
+          </tr>
+        </table>
+        <br />
+        <% }); %>
         <div class="time-article-container hidden">
           <div class="time-article-view">
             <table id="time-article">
@@ -264,37 +291,7 @@
             <button id="time-article-close-button" class="w-btn w-btn-indigo edit-button" style="color: tomato;">Close</button>  
           </div>
         </div>
-        <table class="main-table">   
-          <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
-            <td id="table-category">
-            <% switch (tasks.category) {
-                  case "공부": %>
-                    📚            
-                    <% break;
-                  case "운동": %>  
-                    💪🏻       
-                <% break;
-                  case "산책": %>
-                    🚶🏻‍♀️           
-                <% break;
-                  case "독서": %>
-                    📖           
-                <% break;
-                  case "데이트": %>
-                    ❣️            
-                <% break;
-                  default: 
-                    break; } %>
-            </td>
-            <td id="table-title" class="table-title">
-              <%= tasks.title %>
-            </td>
-            <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
-          
-          </tr>
-        </table>
-        <br />
-        <% }); %>
+
         <button id="statistics" class="w-btn w-btn-indigo">Today</button>
       </div>
       <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
@@ -313,6 +310,7 @@
         <p>🔥다들 행복한 Steady Life 되세요!🔥</p>
       </div>
     </section>
+    
     <script type="module" src="/public/js/index.js"></script>
   </body>
 </html>
