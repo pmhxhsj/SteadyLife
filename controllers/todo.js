@@ -4,8 +4,9 @@ const moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Seoul');
 
 exports.get = function (req, res) {
+  console.log(req.user);
   TodoTask.find(
-    { date: moment().format('YYYY-MM-DD') },
+    { date: moment().format('YYYY-MM-DD'), userID: req.user.id },
     null,
     { sort: { startTime: 1 } },
     (err, tasks) => {
@@ -20,7 +21,7 @@ exports.get = function (req, res) {
 
 exports.getDate = function (req, res) {
   TodoTask.find(
-    { date: req.query.date },
+    { date: req.query.date, userID: req.user.id },
     null,
     { sort: { startTime: 1 } },
     (err, tasks) => {
@@ -36,6 +37,7 @@ exports.getDate = function (req, res) {
 exports.write = async function (req, res) {
   try {
     const todoTask = new TodoTask({
+      userID: req.user.id,
       category: req.body.category,
       title: req.body.title,
       startTime: req.body.startTime,
