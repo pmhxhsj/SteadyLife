@@ -25,7 +25,6 @@
     />
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <meta name="viewport" content="height=device-height, initial-scale=0.7, minimum-scale=1.0, maximum-scale=1.0 ,user-scalable=no" />
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1"> -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -38,9 +37,10 @@
       });
     } );
   </script>
-
   </head>
+
   <body>
+
     <header class="main-header">
       <div class="header">
         <div class="start-header"></div>
@@ -49,7 +49,7 @@
         </div>
         <div class="end-header">
         <a href="/auth/logout">
-          <button class="logout-btn w-btn w-btn-indigo">Logout</button>
+          <button class="standard-btn w-btn w-btn-indigo">Logout</button>
         </a>
         </div>
       </div>
@@ -77,8 +77,8 @@
       </div>
     </header>
     <br>
-    <div class="sub-header">
 
+    <div class="sub-header">
       <div class="header-main-btn">
         <button id="todolist-button" class="sub-header-btn focus">
           Todo
@@ -87,9 +87,9 @@
           MyPage
         </button>
       </div>
-      
     </div>
     <br>
+    
     <section class="container">
       <div class="container-scroll">
         <div class="hidden to-do-create-container">
@@ -146,16 +146,14 @@
             <br>
             <div class="form-button-container">
               <div></div>
-              <button id="create-todo-btn" type="submit" class="w-btn w-btn-indigo">Add</button>
-              <button type="button" id="form-close-button" class="w-btn w-btn-indigo">Close</button>
+              <button id="create-todo-btn" type="submit" class="w-btn w-btn-indigo standard-btn">Add</button>
+              <button type="button" id="form-close-button" class="w-btn w-btn-indigo standard-btn">Close</button>
               <div></div>
             </div>
           </form>
         </div>
       
-        <% let date = ""; 
-        let next_date = "";
-      
+        <% 
         const calculateTime = (time) => {
           return time.split(':').reduce((acc, cur, idx) => {
             if (idx === 0) return acc + Number(cur * 60);
@@ -163,7 +161,7 @@
           }, 0);
          };
 
-         const convertMinutesToHours = (min) => {
+        const convertMinutesToHours = (min) => {
           const hour =
             String(Math.floor(min / 60)).length === 1
               ? '0' + String(Math.floor(min / 60))
@@ -172,7 +170,7 @@
             String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
 
           return hour + ':' + minutes;
-         };
+        };
 
         let studyTime = 0;
         let restTime = 0;
@@ -186,10 +184,14 @@
         });
 
         todoTasks.forEach(tasks => {
-          date = tasks.date  %>
+          let date = tasks.date  %>
         
-        <table class="main-table">   
+        <table class="main-table">
+          <% if(date == today) { %> 
           <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
+          <% } else { %>
+          <tr class="table-tr" onclick="alert('이전 기록은 수정 및 삭제가 불가능합니다🥲')"> 
+          <% } %>  
             <td id="table-category">
             <% switch (tasks.category) {
                   case "공부": %>
@@ -219,94 +221,81 @@
         </table>
         <br />
         <% }); %>
+
         <div class="time-article-container hidden">
           <div class="time-article-view">
             <table id="time-article">
+              <th style="width: 120px;">
+                Study
+              </th>
+              <th style="width: 120px;">
+                Rest
+              </th>
               <tr>
-                <td>
-                  ✔︎ 목표 시간 : 
-                </td>
-                <td>
-                  8시간
-                </td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <span>✔︎ 공부 시간 : </span>
-                </td>
                 <td>
                   <%= Math.floor(studyTime/60) %>시간 <%= studyTime%60 %>분
                 </td>
-              </tr>
-              
-                <% if(calculateTime('08:00')-studyTime > 0) { %>
-              <tr>
-                <td>
-                  ✔︎ 남은 시간 :
-                </td>
-                <td>
-                  <span style="color: tomato"><%= Math.floor((calculateTime('08:00')-studyTime)/60) %>시간
-                    <%= (calculateTime('08:00')-studyTime)%60 %>분</span>
-                </td>
-              <tr>
-                <td>
-                  ✔︎ 휴식 시간 :
-                </td>
                 <td>
                   <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
                 </td>
               </tr>
-                <% } else { %>
-              <tr>
-                <td>
-                  ✔︎ 휴식 시간 :
-                </td>
-                <td>
-                  <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
-                </td>
-              </tr>
-                <td colspan="3" style="text-align: center;">
-                  <span style="color: tomato;">🔥 Today Success 🔥</span>
-                </td>
-              </tr>
-                <% } %>
-              <tr style="height: 50px;">
-                <% let str; %>
-                <% if(studyTime < 480) { 
-                   const turtleTime = Math.floor(studyTime / 60);
-                   str = '🪵🪵🪵🪵🪵🪵🪵🪵'
-                   for(let i = 0; i < turtleTime; i++) {
-                    str = str.replace('🪵', '🌳');
-                   };
+            
+               
+              <tr style="height: 100px;">
 
-                  } else {
-                   str = '🌳🐢🌴'
-                  }
-                %>
-                  <td colspan="2"><%= str %></td>
+                <% let studyTree = '';
+                   let restSprout = '';
+
+                   const totalStudyTime = Math.floor(studyTime / 60);
+                   const totalRestTime = Math.floor(restTime / 60);
+
+                   
+                   totalStudyTime < 1 ? studyTree="🐝" :
+                   totalStudyTime <= 2 ? studyTree="🌱" :
+                   totalStudyTime <= 3 ? studyTree="🌿" :
+                   totalStudyTime <= 4 ? studyTree="🍀" :
+                   totalStudyTime <= 5 ? studyTree="🪴" :
+                   totalStudyTime <= 6 ? studyTree="🌲" : studyTree="🌳"; 
+
+                   totalRestTime < 1 ? restSprout="🥀" :
+                   totalRestTime <= 2 ? restSprout="🌺" :
+                   totalRestTime <= 3 ? restSprout="🌷" :
+                   totalRestTime <= 4 ? restSprout="🌹" :
+                   totalRestTime <= 5 ? restSprout="🌸" :
+                   totalRestTime <= 6 ? restSprout="🌼" : restSprout="🌻"; %>
+                  <td> 
+                    <span style="font-size: 70px;"><%= studyTree %></span><br />
+                    <% if(studyTime >= 360) { %>
+                    <span style="font-size: 25px;">💯</span>
+                    <% } %> 
+                 </td>
+                  <td>
+                    <span style="font-size: 70px;"><%= restSprout %></span>
+                    <% if(restTime >= 360) { %>
+                      <span style="font-size: 25px;">💯</span>
+                    <% } %> 
+                  </td>  
               </tr>
+    
+              
             </table>
             <br />
-            <button id="time-article-close-button" class="w-btn w-btn-indigo edit-button" style="color: tomato;">Close</button>  
+            <button id="time-article-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>  
           </div>
         </div>
 
-        <button id="statistics" class="w-btn w-btn-indigo">Today</button>
+        <button id="statistics" class="w-btn w-btn-indigo small-standard-btn">Today</button>
       </div>
-      <button id="create-btn" class="create-list-btn w-btn w-btn-indigo">+</button>
+      <button id="create-btn" class="w-btn w-btn-indigo small-standard-btn">+</button>
     </section>
 
 
     <section>
       <br>
       <div class="mypage-container hidden">
-        
-    
+      
         <p>✔︎ 추후 월별 공부량 통계 만들어서 시각화 할 예정입니다.</p>
         <p>✔︎ Todo Success시 이벤트를 고민하고 있어서 아직 미완성입니다.</p>
-        <p>✔︎ 목표시간이 8시간인 이유는 정상적인 생활을 위해서예요!</p>
-        <p>추후 따로 목표시간을 정할 수 있도록 하겠습니다.</p>
         <p>🔥다들 행복한 Steady Life 되세요!🔥</p>
       </div>
     </section>

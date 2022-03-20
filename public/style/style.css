@@ -5,18 +5,16 @@
   font-family: 'Noto Serif KR', serif;
 }
 
-#time-article td:first-child {
-  text-align: center;
+#time-article th {
   font-size: 20px;
-  color: white;
-  font-weight: bold;
+  color: lavender;
 }
 
-#time-article td:nth-child(2) {
+#time-article tr {
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
-  color: lavender;
+  color: rgb(255, 255, 255);
 }
 
 #datepicker {
@@ -83,14 +81,18 @@
   position: absolute;
   top: 500px;
   left: 360px;
+  font-size: 25px;
 }
 
 #statistics {
   position: absolute;
-  height: 30px;
   top: 500px;
   right: 360px;
-  width: 50px;
+}
+
+.small-standard-btn {
+  width: 60px;
+  height: 30px;
 }
 
 .time-article-container {
@@ -107,10 +109,6 @@
   height: 300px;
   border-radius: 30px;
   background-color: rgba(7, 8, 56, 0.3);
-}
-
-#time-article-close-button {
-  width: 100px;
 }
 
 #edit-text {
@@ -135,10 +133,7 @@
   background-color: rgba(179, 218, 255, 0.3);
 }
 
-.edit-button {
+.standard-btn {
+  width: 80px;
   height: 30px;
-}
-
-.goal-time-input input {
-  width: 15px;
 }

@@ -90,11 +90,6 @@ select {
   flex: 1;
 }
 
-#create-todo-btn {
-  height: 30px;
-}
-
 #form-close-button {
-  height: 30px;
   color: red;
 }
