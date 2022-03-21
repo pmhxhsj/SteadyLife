@@ -85,7 +85,11 @@ exports.write = async function (req, res) {
 exports.edit = function (req, res) {
   const id = req.params.id;
   TodoTask.find({}, null, { sort: { date: -1 } }, (err, tasks) => {
-    res.render('todo-edit', { todoTasks: tasks, idTask: id });
+    res.render('todo-edit', {
+      todoTasks: tasks,
+      idTask: id,
+      today: moment().format('YYYY-MM-DD'),
+    });
   });
 };
 
