@@ -1,4 +1,4 @@
-const changeDate = () => {
+const changeCorrectDate = () => {
   const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   document.querySelector('#yesterday-btn').addEventListener('click', (e) => {
@@ -71,4 +71,4 @@ const changeDate = () => {
   });
 };
 
-export default changeDate;
+export default changeCorrectDate;
