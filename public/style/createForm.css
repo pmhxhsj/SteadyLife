@@ -26,6 +26,13 @@
 
 /* create form css */
 
+#create-btn {
+  position: absolute;
+  top: 500px;
+  left: 360px;
+  font-size: 25px;
+}
+
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -85,11 +92,8 @@ select {
 .form-button-container div {
   flex: 1;
 }
+
 .form-button-container button {
   margin: 10px;
   flex: 1;
-}
-
-#form-close-button {
-  color: red;
 }

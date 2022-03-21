@@ -24,3 +24,20 @@
 .w-btn:active {
   transform: scale(1.2);
 }
+
+.standard-btn {
+  width: 80px;
+  height: 30px;
+}
+
+.small-standard-btn {
+  width: 60px;
+  height: 30px;
+}
+
+#time-article-help-button {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  background-color: rgb(250, 250, 44, 0.7);
+}
