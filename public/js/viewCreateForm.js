@@ -1,4 +1,4 @@
-const currentTime = () => {
+const formatStartTimeCurrentTime = () => {
   const today = new Date();
   const hours = String(today.getHours()).padStart(2, '0'); // 시
   const minutes = String(today.getMinutes()).padStart(2, '0'); // 분
@@ -27,4 +27,4 @@ const displayTodoCreateForm = () => {
     });
 };
 
-export { currentTime, displayTodoCreateForm };
+export { formatStartTimeCurrentTime, displayTodoCreateForm };
