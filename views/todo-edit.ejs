@@ -10,7 +10,7 @@
   <link
     rel="stylesheet"
     type="text/css"
-    href="/public/style/mainPageButton.css"
+    href="/public/style/Button.css"
   />
   <link
     rel="stylesheet"
@@ -96,6 +96,7 @@
                 </td>
               </tr>
               <tr>
+                <% if(date==today){%>  
                 <td>
                   <input
                     id="todo-start-time-input"
@@ -115,22 +116,83 @@
                     name="endTime"
                     autocomplete="off"
                   />
+                </td>
+                <% } else { %>
+                  <td>
+                  <input
+                    id="todo-start-time-input"
+                    class="input-time timepicker"
+                    value="<%= tasks.startTime %>"
+                    type="time"
+                    name="startTime"
+                    autocomplete="off"
+                    readonly
+                  />
+                </td>
+                <td>
+                  <input
+                    id="todo-end-time-input"
+                    class="input-time timepicker"
+                    value="<%= tasks.endTime %>"
+                    type="time"
+                    name="endTime"
+                    autocomplete="off"
+                    readonly
+                  />
                 </td>  
+                <% } %>
               </tr>
             </table>
             <br>
             <div class="form-button-container">
               <div></div>
+              <% if(date == today) { %>
               <button type="submit" class="w-btn w-btn-indigo standard-btn" id="img">Edit</button>
-              <button type="button" class="w-btn w-btn-indigo standard-btn" style="color:tomato"id="img" onclick="location.href='/todo/remove/<%= tasks._id %>'">
+
+              <button 
+                type="button" 
+                class="w-btn w-btn-indigo standard-btn" 
+                style="color:tomato"
+                id="img" 
+                onclick="location.href='/todo/remove/<%= tasks._id %>'"
+              >
                 Remove
               </button>
+
+              <% } else { %>
+
+              <button 
+                type="button" 
+                class="w-btn w-btn-indigo standard-btn" 
+                style="color:tomato"
+                id="img" 
+                onclick="location.href='/todo/remove/<%= tasks._id %>'"
+              >
+                Remove
+              </button>
+              <% } %>  
               <div></div>
             </div>
             <div class="form-button-container">
               <div></div>
-              <button type="button" class="w-btn w-btn-indigo standard-btn" style="color:violet">Success!</button>
-              <button type="button" class="w-btn w-btn-indigo standard-btn" onclick="location.href='/todo/'">Back</button>
+
+              <button 
+                id="success-btn" 
+                type="button" 
+                class="w-btn w-btn-indigo standard-btn" 
+                style="color:violet"
+                onclick="Swal.fire('준비중인 기능입니다.')"
+              >
+                Success!
+              </button>
+
+              <button 
+                type="button" 
+                class="w-btn w-btn-indigo standard-btn" 
+                onclick="location.href='/todo/'"
+              >
+                Back
+              </button>
               <div></div>
             </div>
           </form>
@@ -140,4 +202,5 @@
       <% }}); %>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </html>
