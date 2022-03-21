@@ -1,12 +1,15 @@
-import { displayTodoCreateForm, currentTime } from './formEvent.js';
-import changeDate from './changeDate.js';
-import { displayMyPage, displayTodo } from './myPage.js';
-import { statistic, statisticClose } from './statistics.js';
+import {
+  displayTodoCreateForm,
+  formatStartTimeCurrentTime,
+} from './viewCreateForm.js';
+import changeCorrectDate from './changeDate.js';
+import { displayMyPage, displayTodo } from './viewMyPage.js';
+import { displayStatistic, displayHelpWindow } from './viewStatistics.js';
 
-changeDate();
+formatStartTimeCurrentTime();
+changeCorrectDate();
 displayTodoCreateForm();
-currentTime();
 displayMyPage();
 displayTodo();
-statistic();
-statisticClose();
+displayStatistic();
+displayHelpWindow();
