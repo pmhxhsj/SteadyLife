@@ -11,7 +11,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/public/style/mainPageButton.css"
+      href="/public/style/Button.css"
     />
     <link
       rel="stylesheet"
@@ -89,7 +89,7 @@
       </div>
     </div>
     <br>
-    
+
     <section class="container">
       <div class="container-scroll">
         <div class="hidden to-do-create-container">
@@ -147,7 +147,7 @@
             <div class="form-button-container">
               <div></div>
               <button id="create-todo-btn" type="submit" class="w-btn w-btn-indigo standard-btn">Add</button>
-              <button type="button" id="form-close-button" class="w-btn w-btn-indigo standard-btn">Close</button>
+              <button type="button" id="form-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>
               <div></div>
             </div>
           </form>
@@ -187,11 +187,8 @@
           let date = tasks.date  %>
         
         <table class="main-table">
-          <% if(date == today) { %> 
           <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
-          <% } else { %>
-          <tr class="table-tr" onclick="alert('이전 기록은 수정 및 삭제가 불가능합니다🥲')"> 
-          <% } %>  
+
             <td id="table-category">
             <% switch (tasks.category) {
                   case "공부": %>
@@ -276,14 +273,58 @@
                     <% } %> 
                   </td>  
               </tr>
-    
-              
             </table>
             <br />
-            <button id="time-article-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>  
+            <div id="time-article-button">
+              <div></div>
+              <div>
+                <button id="time-article-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>
+              </div>
+              <div>
+                <button id="time-article-help-button" class="w-btn w-btn-indigo">?</button>  
+              </div>
+            </div>
           </div>
         </div>
 
+        <div id="help-container" class="hidden">
+          <div class="help-view">
+            <span id="help-title">Every Hour</span>
+            <br />
+            <br />
+            <table>
+              <tr style="height: 50px;">
+                <td> 🐝 </td>
+                <td> 🌱 </td>
+                <td> 🌿 </td>
+                <td> 🍀 </td>
+                <td> 🪴 </td>
+                <td> 🌲 </td>
+                <td> 🌳 </td>
+              </tr>
+              <tr>
+                <td>🥀</td>
+                <td>🌺</td>
+                <td>🌷</td>
+                <td>🌹</td>
+                <td>🌸</td>
+                <td>🌼</td>
+                <td>🌻</td>
+              </tr>
+            </table>
+            <br />
+
+            <div class="help-btn-container">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div>
+                <button id="help-close-btn" class="w-btn w-btn-indigo small-standard-btn" style="color:tomato">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
         <button id="statistics" class="w-btn w-btn-indigo small-standard-btn">Today</button>
       </div>
       <button id="create-btn" class="w-btn w-btn-indigo small-standard-btn">+</button>
@@ -293,13 +334,13 @@
     <section>
       <br>
       <div class="mypage-container hidden">
-      
         <p>✔︎ 추후 월별 공부량 통계 만들어서 시각화 할 예정입니다.</p>
         <p>✔︎ Todo Success시 이벤트를 고민하고 있어서 아직 미완성입니다.</p>
         <p>🔥다들 행복한 Steady Life 되세요!🔥</p>
       </div>
     </section>
-    
+  
     <script type="module" src="/public/js/index.js"></script>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </html>
