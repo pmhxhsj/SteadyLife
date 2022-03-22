@@ -23,6 +23,11 @@
       type="text/css"
       href="/public/style/table.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/public/style/calendar.css"
+    />
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <meta name="viewport" content="height=device-height, initial-scale=0.7, minimum-scale=1.0, maximum-scale=1.0 ,user-scalable=no" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -331,12 +336,31 @@
     </section>
 
 
-    <section>
+    <section class="mypage">
       <br>
       <div class="mypage-container hidden">
-        <p>✔︎ 추후 월별 공부량 통계 만들어서 시각화 할 예정입니다.</p>
-        <p>✔︎ Todo Success시 이벤트를 고민하고 있어서 아직 미완성입니다.</p>
-        <p>🔥다들 행복한 Steady Life 되세요!🔥</p>
+        <div class="calendar hidden">
+          <div class="header">
+            <div class="year-month"></div>
+            <div class="nav">
+              <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+              <button class="nav-btn go-today" onclick="goToday()">Today</button>
+              <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+            </div>
+          </div>
+          <div class="main">
+            <div class="days">
+              <div class="day">일</div>
+              <div class="day">월</div>
+              <div class="day">화</div>
+              <div class="day">수</div>
+              <div class="day">목</div>
+              <div class="day">금</div>
+              <div class="day">토</div>
+            </div>
+            <div class="dates"></div>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -350,6 +374,7 @@
         </div>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
+    <script src="/public/js/calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </html>
