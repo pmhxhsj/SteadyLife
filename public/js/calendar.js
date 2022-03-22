@@ -2,11 +2,12 @@ let date = new Date();
 
 const renderCalender = () => {
   const viewYear = date.getFullYear();
-  const viewMonth = date.getMonth();
+  let viewMonth = date.getMonth();
 
-  document.querySelector('.year-month').textContent = `${viewYear}년 ${
-    viewMonth + 1
-  }월`;
+  document.querySelector('.year-month').textContent =
+    viewMonth >= 9
+      ? `${viewYear}-${viewMonth + 1}`
+      : `${viewYear}-0${viewMonth + 1}`;
 
   const prevLast = new Date(viewYear, viewMonth, 0);
   const thisLast = new Date(viewYear, viewMonth + 1, 0);
