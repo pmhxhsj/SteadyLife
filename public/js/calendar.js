@@ -1,7 +1,9 @@
+import { displayBillboard } from './billboard.js';
+
 let date = new Date();
 
 const renderCalender = () => {
-  const viewYear = date.getFullYear();
+  let viewYear = date.getFullYear();
   let viewMonth = date.getMonth();
 
   document.querySelector('.year-month').textContent =
@@ -37,11 +39,15 @@ const renderCalender = () => {
   const lastDateIndex = dates.lastIndexOf(TLDate);
 
   dates.forEach((date, i) => {
-    const condition =
-      i >= firstDateIndex && i < lastDateIndex + 1 ? 'this' : 'other';
-    dates[
-      i
-    ] = `<div class="date"><span class=${condition}>${date}</span></div>`;
+    let copyDate = '';
+
+    date < 10 ? (copyDate = '0' + String(date)) : (copyDate = String(date));
+
+    i >= firstDateIndex && i < lastDateIndex + 1
+      ? (dates[
+          i
+        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart" id="pieChart${date}" ></div></div>`)
+      : (dates[i] = `<form class="date" name="date"><span></span></form>`);
   });
 
   document.querySelector('.dates').innerHTML = dates.join('');
@@ -55,19 +61,28 @@ const renderCalender = () => {
       }
     }
   }
+
+  // const dateDate = document.querySelectorAll('.dates .date');
+  // dateDate.forEach((v) => {
+  //   v.addEventListener('click', (e) => {
+  //     document.getElementById(`${v.name}`).submit();
+  //   });
+  // });
 };
 
 renderCalender();
-
-const prevMonth = () => {
+displayBillboard();
+document.querySelector('.go-prev').addEventListener('click', (e) => {
   date.setMonth(date.getMonth() - 1);
   renderCalender();
-};
+  displayBillboard();
+});
 
-const nextMonth = () => {
+document.querySelector('.go-next').addEventListener('click', (e) => {
   date.setMonth(date.getMonth() + 1);
   renderCalender();
-};
+  displayBillboard();
+});
 
 const goToday = () => {
   date = new Date();
