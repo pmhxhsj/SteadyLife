@@ -69,7 +69,7 @@
 <img width="113" alt="Screenshot_2022-03-23 18 14 52_zQ466t" src="https://user-images.githubusercontent.com/72312559/159664577-aeffb6f9-e403-404e-bc17-4da37308ca7e.png">
 </p>
 
-###### ✔︎ add버튼을 눌러 기록을 추가할 수 있습니다.
+###### ✔︎ +버튼 => add버튼을 눌러 기록을 추가할 수 있습니다.
 
 ###### ✔︎ 잘못된 입력에 대해선 에러 메시지를 보여줍니다.
 
@@ -85,6 +85,11 @@
 
 ###### ✔︎ 카테고리별로 study time, rest time을 알려줍니다.
 
+###### ✔︎ 각 데이터에 대해 CRUD가 가능합니다.(이전 날짜들의 데이터는 수정만 불가능합니다.
+
 ###### ✔︎ 각 Study, Rest time에 따라 식물의 종류가 달라지는 효과를 넣었습니다.
 
-###### ✔︎ 각 데이터에 대해 CRUD가 가능합니다.(이전 날짜들의 데이터는 수정만 불가능합니다.)
+<br>
+<p align="center">
+<img style="width:300px" src="https://user-images.githubusercontent.com/72312559/159669958-ede9bc9d-a705-4aa9-bf7c-2c020529ff0f.gif">
+</p>
