@@ -56,7 +56,7 @@
 <img width="633" alt="Screenshot_2022-03-23 18 09 04_jyZqBE" src="https://user-images.githubusercontent.com/72312559/159663461-ebe6bfb4-c920-41eb-9f63-a2cb0108f676.png">
 </p>
 
-###### ✔︎ 추후 달력 날짜에 맞는 데이터를 시각화할 예정입니다.
+###### ✔︎ 추후 달력 날짜에 맞는 데이터를 애플워치 활동달력 처럼 시각화할 예정입니다.
 
 <br>
 
