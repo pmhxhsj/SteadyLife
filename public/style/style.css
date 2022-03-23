@@ -193,3 +193,13 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
+/* billboard */
+
+.billboard-container {
+  display: flex;
+}
+
+.billboard-container div {
+  flex: 1;
+}
