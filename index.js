@@ -22,7 +22,7 @@ const TodoTask = require('./models/todoTask');
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(passport.initialize());

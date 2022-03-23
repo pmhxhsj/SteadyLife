@@ -32,6 +32,8 @@
   <meta name="viewport" content="height=device-height, initial-scale=0.7, minimum-scale=1.0, maximum-scale=1.0 ,user-scalable=no" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/datalab.min.css">
+  <script src="https://naver.github.io/billboard.js/release/latest/dist/billboard.pkgd.min.js"></script>
   <script>
     $( function() {
       $( "#datepicker" ).datepicker({
@@ -187,10 +189,35 @@
             restTime += calculateTime(ele.remainingTime);
           }
         });
+        
+        let [study, exercise, walk, reading, love, other] = [0,0,0,0,0,0]
+
+        todoTasks.forEach(ele => {
+          switch (ele.category) {
+            case "공부":
+              study += calculateTime(ele.remainingTime);
+              break;
+            case "독서":
+              reading += calculateTime(ele.remainingTime);
+              break;
+            case "운동":
+              exercise += calculateTime(ele.remainingTime);
+              break;  
+            case "산책":
+              walk += calculateTime(ele.remainingTime);
+              break;
+            case "데이트":
+              love += calculateTime(ele.remainingTime);
+              break;
+            default:
+              other += calculateTime(ele.remainingTime);
+              break;
+          }
+        });
 
         todoTasks.forEach(tasks => {
           let date = tasks.date  %>
-        
+
         <table class="main-table">
           <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
 
@@ -224,6 +251,15 @@
         <br />
         <% }); %>
 
+        <span id="studyTime" class="hidden"><%= studyTime %></span>
+        <span id="restTime" class="hidden"><%= restTime %></span> 
+        <span id="study" class="hidden"><%= study %></span>
+        <span id="exercise" class="hidden"><%= exercise %></span> 
+        <span id="reading" class="hidden"><%= reading %></span>
+        <span id="love" class="hidden"><%= love %></span> 
+        <span id="walk" class="hidden"><%= walk %></span>
+        <span id="other" class="hidden"><%= other %></span> 
+        
         <div class="time-article-container hidden">
           <div class="time-article-view">
             <table id="time-article">
@@ -241,8 +277,6 @@
                   <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
                 </td>
               </tr>
-            
-               
               <tr style="height: 100px;">
 
                 <% let studyTree = '';
@@ -339,6 +373,8 @@
     <section class="mypage">
       <div class="mypage-container hidden">
         <div class="calendar hidden">
+          <div style="margin-bottom: 30px;"><%= user.displayName %>님 안녕하세요😀</div>
+          <br />
           <div class="mypage-header">
             <div class="nav">
               <div>
@@ -365,8 +401,16 @@
         </div>
       </div>
     </section>
-    
 
+    <div class="billboard-container">
+      <div></div>
+      <div></div>
+      <div id="pieChart"></div>
+      <div></div>
+      <div></div>
+    </div>
+    <br>
+    <br>
     <footer>
         <div class="footer-img-container">
           <a href="https://github.com/pmhxhsj" target="_blank">

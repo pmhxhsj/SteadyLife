@@ -5,6 +5,7 @@ import {
 import changeCorrectDate from './changeDate.js';
 import { displayMyPage, displayTodo } from './viewMyPage.js';
 import { displayStatistic, displayHelpWindow } from './viewStatistics.js';
+import { displayBillboard } from './billboard.js';
 
 formatStartTimeCurrentTime();
 changeCorrectDate();
@@ -13,3 +14,4 @@ displayMyPage();
 displayTodo();
 displayStatistic();
 displayHelpWindow();
+displayBillboard();
