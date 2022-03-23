@@ -53,10 +53,10 @@
 ### ✔︎ 메인페이지(MyPage)
 
 <p align="center">
-  <img width="400" alt="Screenshot_2022-03-23 18 09 04_jyZqBE" src="https://user-images.githubusercontent.com/72312559/159663461-ebe6bfb4-c920-41eb-9f63-a2cb0108f676.png">
+  <img width="800" alt="Screenshot_2022-03-24 05 50 01_0dJQtb" src="https://user-images.githubusercontent.com/72312559/159793313-c5714ad0-9148-48c1-9fab-f72c272ed16e.png">
 </p>
 
-###### ✔︎ 추후 달력 날짜에 맞는 데이터를 애플워치 활동달력 처럼 시각화할 예정입니다.
+###### ✔︎ 현재는 당일 데이터가 모든 달력에 추가되어있지만, 추후 백엔드를 다듬어 달력 날짜에 맞는 데이터를 애플워치 활동달력 처럼 시각화할 예정입니다.
 
 <br>
 
@@ -65,8 +65,7 @@
 <hr>
 
 <p align="center">
-  <img width="499" alt="Screenshot_2022-03-23 17 41 29_PB7qwm" src="https://user-images.githubusercontent.com/72312559/159664169-779033d6-a70d-4025-a35e-59e722e6a11c.png">
-  <img width="113" alt="Screenshot_2022-03-23 18 14 52_zQ466t" src="https://user-images.githubusercontent.com/72312559/159664577-aeffb6f9-e403-404e-bc17-4da37308ca7e.png">
+  <img width="400" alt="Screenshot_2022-03-23 17 41 29_PB7qwm" src="https://user-images.githubusercontent.com/72312559/159664169-779033d6-a70d-4025-a35e-59e722e6a11c.png">
 </p>
 
 ###### ✔︎ +버튼 => add버튼을 눌러 기록을 추가할 수 있습니다.
@@ -94,8 +93,8 @@
   <img style="width:400px" src="https://user-images.githubusercontent.com/72312559/159669958-ede9bc9d-a705-4aa9-bf7c-2c020529ff0f.gif">
 </p>
 
-###### ✔︎ billboard.js를 사용해 당일의 데이터를 시각화하였습니다. (추후 달력에 표시할 예정)
+###### ✔︎ billboard.js를 사용해 당일의 데이터를 시각화하였습니다.
 
 <p align="center">
-  <img width="1274" alt="Screenshot_2022-03-24 02 59 17_8wky8z" src="https://user-images.githubusercontent.com/72312559/159765503-7f0bce37-ccde-4f3c-b607-342ad6c3d73c.png">
+  <img width="911" alt="Screenshot_2022-03-24 05 45 54_XrX1qT" src="https://user-images.githubusercontent.com/72312559/159792680-bd8d14cd-3a63-4080-adbf-5b7f2511e7ec.png">
 </p>
