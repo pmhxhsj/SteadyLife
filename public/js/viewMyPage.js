@@ -5,14 +5,18 @@ const displayMyPage = () => {
     const mypagebtn = document.querySelector('#myPage-button');
     const todobtn = document.querySelector('#todolist-button');
     const calendar = document.querySelector('.calendar');
+    const billboard = document.querySelector('#pieChart');
 
     todobtn.classList.remove('focus');
     mypagebtn.classList.add('focus');
 
     todo.classList.add('hidden');
+    billboard.classList.add('hidden');
+
     mypage.classList.remove('hidden');
-    calendar.classList.remove('hidden');
     mypage.classList.add('appear');
+
+    calendar.classList.remove('hidden');
     calendar.classList.add('appear');
   });
 };
@@ -24,13 +28,17 @@ const displayTodo = () => {
     const mypagebtn = document.querySelector('#myPage-button');
     const todobtn = document.querySelector('#todolist-button');
     const calendar = document.querySelector('.calendar');
+    const billboard = document.querySelector('#pieChart');
 
     todobtn.classList.add('focus');
     mypagebtn.classList.remove('focus');
-    mypage.classList.add('hidden');
-    calendar.classList.add('hidden');
+
     todo.classList.remove('hidden');
     todo.classList.add('appear');
+    billboard.classList.remove('hidden');
+    billboard.classList.add('appear');
+    mypage.classList.add('hidden');
+    calendar.classList.add('hidden');
   });
 };
 

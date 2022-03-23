@@ -378,11 +378,11 @@
           <div class="mypage-header">
             <div class="nav">
               <div>
-                <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                <button class="nav-btn go-prev">&lt;</button>
               </div>
               <div class="year-month"></div>
               <div>
-                <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                <button class="nav-btn go-next">&gt;</button>
               </div>
             </div>
           </div>
@@ -409,6 +409,9 @@
       <div></div>
       <div></div>
     </div>
+
+    <canvas id="pie-chart" width="250px" height="250px"></canvas>
+
     <br>
     <br>
     <footer>
@@ -420,7 +423,7 @@
         </div>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
-    <script src="/public/js/calendar.js"></script>
+    <script type="module" src="/public/js/calendar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </body>
 </html>
