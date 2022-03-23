@@ -1,36 +1,90 @@
-# To-do-list 및 memo 웹 서비스!
+# Steady Life v1.0.0
 
-## 🔥요구사항 02/03🔥
+### 📚 서비스 소개
 
-- 카카오 OAuth 사용하여 로그인 [👍🏼]
-- 사용자 이름으로 메인 페이지에서 환영해줌 [👍🏼]
-- to do list를 작성할 수 있고 수정 및 삭제 가능 다 진행한 list는 짝대기를 그을 수 있음 [ ]
-- 오른쪽 상단에 현재 시간 알려줌 [👍🏼]
+<hr>
+<p align="center">
+<img width="296" alt="Screenshot_2022-03-23 17 43 47_wYuJx1" src="https://user-images.githubusercontent.com/72312559/159660482-df23450d-8802-4d8e-b313-e890af2a1906.png">
+</p>
+
+##### 🕖 매일 할 일을 기록하며 온전히 집중할 수 있는 웹 어플리케이션
+
+[개발배경](https://github.com/pmhxhsj/SteadyLife/wiki/%EA%B0%9C%EB%B0%9C-%EB%B0%B0%EA%B2%BD)
+[요구사항](https://github.com/pmhxhsj/SteadyLife/wiki/Steady-Life-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD)
+
+<p align="center">
+    <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=html5&logoColor=white"/>
+    <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Javascript-ffb13b?style=flat-square&logo=javascript&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/>
+    <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/>
+</p>
+
+### 📚 주요 기능
+
 <hr>
 
-## ✔︎ 변경사항
+### ✔︎ 로그인
 
-- 로컬스토리지가 아닌 nodejs로 백엔드 설계
-  nodejs, mongoDB, express 사용해서 CRUD 개발
+<p align="center">
+  <img width="600" alt="Screenshot_2022-03-23 17 40 20_zBGhwE" src="https://user-images.githubusercontent.com/72312559/159661744-ec9dc188-0192-48df-a6c1-d87ce5178803.png">
+</p>
 
-## 🔥요구사항 02/23🔥
+###### ✔︎ 구글 계정으로 OAuth인증을 통해 로그인 할 수 있습니다.
 
-- 순수 html, css, js를 사용하여 개발(No FrameWork) [👍🏼]
-- Google OAuth 사용하여 로그인 [👍🏼]
-- 사용자 이름으로 메인 페이지에서 환영해줌 [👍🏼]
-- 백엔드로 nodejs, express, mongoDB를 사용 [👍🏼]
-- to do list를 작성할 수 있고 수정 및 삭제 가능 [👍🏼]
-- 날짜 선택 시 해당 날짜의 데이터 보여주기 [👍🏼]
-- 목표 시간을 정해 오늘 한 일이 해당 시간 몇 % 달성했는 지 보여주기 [👍🏼]
-- 디자인 심플하게 하기 [👍🏼]
+<br>
 
-## 🔥현재 문제사항 03/21🔥
+### ✔︎ 메인페이지(Todo)
 
-- 어떤 구글 아이디로 들어가도 똑같은 DB를 보여줌
-  - 구글 로그인에서 얻은 ID토큰을 이용해 개개인의 데이터를 보여주자 [👍🏼]
+<hr>
+<p align="center">
+<img width="1258" alt="Screenshot_2022-03-23 17 40 35_jJ7xcy" src="https://user-images.githubusercontent.com/72312559/159662040-d8b60036-6567-41fa-83f5-ec783815f949.png">
+</p>
 
-## 🔥요구사항 03/21🔥
+###### ✔︎ 날짜 선택 두 가지 방법으로 가능합니다.
 
-- MyPage창 구성 [👍🏼]
-- 월별 카테고리별 시간을 보여줌 []
-- 일일 카테고리별 진행한 시간을 시각적으로 보여줌 []
+- datepicker를 이용해 날짜 변환
+- 좌우 화살표를 이용해 하루씩 날짜 변환
+
+###### ✔︎ 작성한 Todo list 확인 가능합니다.
+
+<br>
+
+### ✔︎ 메인페이지(MyPage)
+
+<p align="center">
+<img width="633" alt="Screenshot_2022-03-23 18 09 04_jyZqBE" src="https://user-images.githubusercontent.com/72312559/159663461-ebe6bfb4-c920-41eb-9f63-a2cb0108f676.png">
+</p>
+
+###### ✔︎ 추후 달력 날짜에 맞는 데이터를 시각화할 예정입니다.
+
+<br>
+
+### ✔︎ 기록 입력
+
+<hr>
+
+<p align="center">
+<img width="499" alt="Screenshot_2022-03-23 17 41 29_PB7qwm" src="https://user-images.githubusercontent.com/72312559/159664169-779033d6-a70d-4025-a35e-59e722e6a11c.png">
+<img width="113" alt="Screenshot_2022-03-23 18 14 52_zQ466t" src="https://user-images.githubusercontent.com/72312559/159664577-aeffb6f9-e403-404e-bc17-4da37308ca7e.png">
+</p>
+
+###### ✔︎ add버튼을 눌러 기록을 추가할 수 있습니다.
+
+###### ✔︎ 잘못된 입력에 대해선 에러 메시지를 보여줍니다.
+
+<br>
+
+### ✔︎ 기록 입력 수정
+
+<hr>
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/72312559/159667891-5175676a-decd-4599-93a4-7583be21e820.gif)
+
+###### ✔︎ 카테고리별 to do 아이콘이 다릅니다.
+
+###### ✔︎ 카테고리별로 study time, rest time을 알려줍니다.
+
+###### ✔︎ 각 Study, Rest time에 따라 식물의 종류가 달라지는 효과를 넣었습니다.
+
+###### ✔︎ 각 데이터에 대해 CRUD가 가능합니다.(이전 날짜들의 데이터는 수정만 불가능합니다.)
