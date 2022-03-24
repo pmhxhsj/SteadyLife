@@ -9,7 +9,7 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs'); //express 서버에서 jsp처럼 쓰는 ejs파일을 뷰 엔진으로 설정
 app.set('views', path.join(__dirname, 'views'));
