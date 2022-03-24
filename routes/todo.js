@@ -8,6 +8,8 @@ router.get('/', controller.get);
 
 router.get('/getDate', controller.getDate);
 
+router.get('/myPage', controller.myPage);
+
 router.post('/write', controller.write);
 
 router.get('/edit/:id', controller.edit);

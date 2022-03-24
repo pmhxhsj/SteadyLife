@@ -35,6 +35,22 @@ exports.getDate = function (req, res) {
   );
 };
 
+exports.myPage = function (req, res) {
+  TodoTask.find(
+    { userID: req.user.id },
+    null,
+    { sort: { startTime: 1 } },
+    (err, tasks) => {
+      res.render('myPage', {
+        todoTasks: tasks,
+        user: req.user,
+        currentDate: req.query.date,
+        today: moment().format('YYYY-MM-DD'),
+      });
+    }
+  );
+};
+
 exports.write = async function (req, res) {
   try {
     const todoTask = new TodoTask({
