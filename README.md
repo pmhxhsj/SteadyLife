@@ -7,7 +7,7 @@
 <img width="296" alt="Screenshot_2022-03-23 17 43 47_wYuJx1" src="https://user-images.githubusercontent.com/72312559/159660482-df23450d-8802-4d8e-b313-e890af2a1906.png">
 </p>
 
-##### 🕖 매일 할 일을 기록하며 온전히 집중할 수 있는 웹 어플리케이션
+##### 🕖 매일 할 일을 기록하며 온전히 집중할 수 있는 시각적인 웹 어플리케이션
 
 [개발배경](https://github.com/pmhxhsj/SteadyLife/wiki/%EA%B0%9C%EB%B0%9C-%EB%B0%B0%EA%B2%BD)
 [요구사항](https://github.com/pmhxhsj/SteadyLife/wiki/Steady-Life-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD)
