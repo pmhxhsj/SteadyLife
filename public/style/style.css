@@ -203,3 +203,9 @@ footer {
 .billboard-container div {
   flex: 1;
 }
+
+/* swal alert css */
+
+.swal2-popup {
+  font-size: 12px !important;
+}
