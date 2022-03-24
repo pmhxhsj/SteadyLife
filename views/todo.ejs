@@ -60,28 +60,6 @@
         </a>
         </div>
       </div>
-
-      <div class="date-container">
-        <div></div>
-        <div class="date-move">
-          <div></div>
-          <div>
-            <button class="change-date" id="yesterday-btn"><</button>
-          </div>
-          <div>
-            <div class="main-page-item">
-              <form action="/todo/getDate" method="get" name="getDate">
-                <input type="text" id="datepicker" name="date" value="<%= currentDate %>"/>
-              </form>  
-            </div> 
-          </div>
-          <div>  
-            <button class="change-date" id="nextday-btn">></button>
-          </div>
-          <div></div>
-        </div>
-        <div></div>
-      </div>
     </header>
     <br>
 
@@ -90,10 +68,32 @@
         <button id="todolist-button" class="sub-header-btn focus">
           Todo
         </button>
-        <button id="myPage-button" class="sub-header-btn">
+        <button id="myPage-button" class="sub-header-btn" onclick="location.href='/todo/myPage/'">
           MyPage
         </button>
       </div>
+    </div>
+    <br>
+    <div class="date-container">
+      <div></div>
+      <div class="date-move">
+        <div></div>
+        <div>
+          <button class="change-date" id="yesterday-btn"><</button>
+        </div>
+        <div>
+          <div class="main-page-item">
+            <form action="/todo/getDate" method="get" name="getDate">
+              <input type="text" id="datepicker" name="date" value="<%= currentDate %>"/>
+            </form>  
+          </div> 
+        </div>
+        <div>  
+          <button class="change-date" id="nextday-btn">></button>
+        </div>
+        <div></div>
+      </div>
+      <div></div>
     </div>
     <br>
 
@@ -251,8 +251,6 @@
         <br />
         <% }); %>
 
-        <span id="studyTime" class="hidden"><%= studyTime %></span>
-        <span id="restTime" class="hidden"><%= restTime %></span> 
         <span id="study" class="hidden"><%= study %></span>
         <span id="exercise" class="hidden"><%= exercise %></span> 
         <span id="reading" class="hidden"><%= reading %></span>
@@ -369,7 +367,6 @@
       <button id="create-btn" class="w-btn w-btn-indigo small-standard-btn">+</button>
     </section>
 
-
     <section class="mypage">
       <div class="mypage-container hidden">
         <div class="calendar hidden">
@@ -401,7 +398,7 @@
         </div>
       </div>
     </section>
-
+    
     <div class="billboard-container">
       <div></div>
       <div></div>
@@ -409,8 +406,6 @@
       <div></div>
       <div></div>
     </div>
-
-    <canvas id="pie-chart" width="250px" height="250px"></canvas>
 
     <br>
     <br>
@@ -423,7 +418,8 @@
         </div>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
-    <script type="module" src="/public/js/calendar.js"></script>
+    <script src="/public/js/mainBillboard.js"></script>
+    <script src="/public/js/changeDate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </body>
 </html>

@@ -37,17 +37,30 @@ const renderCalender = () => {
   const dates = prevDates.concat(thisDates, nextDates);
   const firstDateIndex = dates.indexOf(1);
   const lastDateIndex = dates.lastIndexOf(TLDate);
+  const dateInUse = document.querySelector('#dateInUse').innerHTML;
+  const uniqueDateInUse = [...new Set(dateInUse.split(','))];
 
   dates.forEach((date, i) => {
     let copyDate = '';
-
+    let copyMonth = '';
     date < 10 ? (copyDate = '0' + String(date)) : (copyDate = String(date));
-
-    i >= firstDateIndex && i < lastDateIndex + 1
+    viewMonth + 1 < 10
+      ? (copyMonth = '0' + String(viewMonth + 1))
+      : (copyMonth = String(viewMonth + 1));
+    const value = `${viewYear}-${copyMonth}-${copyDate}`;
+    i >= firstDateIndex &&
+    i < lastDateIndex + 1 &&
+    uniqueDateInUse.includes(value)
+      ? (dates[
+          i
+        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart ${value}" id="pieChart${date}" ></div></div>`)
+      : i >= firstDateIndex && i < lastDateIndex + 1
       ? (dates[
           i
         ] = `<div style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart" id="pieChart${date}" ></div></div>`)
-      : (dates[i] = `<form class="date" name="date"><span></span></form>`);
+      : (dates[
+          i
+        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><span></span></div>`);
   });
 
   document.querySelector('.dates').innerHTML = dates.join('');
@@ -61,13 +74,6 @@ const renderCalender = () => {
       }
     }
   }
-
-  // const dateDate = document.querySelectorAll('.dates .date');
-  // dateDate.forEach((v) => {
-  //   v.addEventListener('click', (e) => {
-  //     document.getElementById(`${v.name}`).submit();
-  //   });
-  // });
 };
 
 renderCalender();
@@ -83,8 +89,3 @@ document.querySelector('.go-next').addEventListener('click', (e) => {
   renderCalender();
   displayBillboard();
 });
-
-const goToday = () => {
-  date = new Date();
-  renderCalender();
-};
