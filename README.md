@@ -53,10 +53,10 @@
 ### ✔︎ 메인페이지(MyPage)
 
 <p align="center">
-  <img width="800" alt="Screenshot_2022-03-24 05 50 01_0dJQtb" src="https://user-images.githubusercontent.com/72312559/159793313-c5714ad0-9148-48c1-9fab-f72c272ed16e.png">
+  <img width="1201" alt="Screenshot_2022-03-24 19 20 23_HRFH4f" src="https://user-images.githubusercontent.com/72312559/159895414-d6de8c58-41e6-4957-9ee9-3d1d8fbdb6c4.png">
 </p>
 
-###### ✔︎ 현재는 당일 데이터가 모든 달력에 추가되어있지만, 추후 백엔드를 다듬어 달력 날짜에 맞는 데이터를 애플워치 활동달력 처럼 시각화할 예정입니다.
+###### ✔︎ 애플워치 활동달력과 같이 기록이 있는 날 달력과 %를 확인할 수 있음
 
 <br>
 
