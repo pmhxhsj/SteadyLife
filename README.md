@@ -53,10 +53,21 @@
 ### ✔︎ 메인페이지(MyPage)
 
 <p align="center">
-  <img width="1201" alt="Screenshot_2022-03-24 19 20 23_HRFH4f" src="https://user-images.githubusercontent.com/72312559/159895414-d6de8c58-41e6-4957-9ee9-3d1d8fbdb6c4.png">
+  <img width="800" alt="Screenshot_2022-03-24 22 48 46_PUy81N" src="https://user-images.githubusercontent.com/72312559/159930417-1375ea54-4bf9-4ccb-9cb7-aae1965cbf86.png">
 </p>
 
-###### ✔︎ 애플워치 활동달력과 같이 기록이 있는 날 달력과 %를 확인할 수 있음
+###### ✔ billboard.js를 사용해 당일의 데이터를 시각화하였습니다.
+
+###### ✔ 당일 뿐만 아니라 월별로 애플워치 활동달력과 같이 기록이 있는 날 달력과 %를 확인할 수 있습니다.
+
+<br>
+
+<p align="center">
+  <img width="400" alt="Screenshot_2022-03-24 22 49 56_QNsSjL" src="https://user-images.githubusercontent.com/72312559/159930704-c225a588-6a16-4de8-a898-0946491ea13e.png">
+</p>
+<br>
+
+###### ✔︎ 마우스를 올려두거나 클릭시 그 날 데이터를 보여줍니다.
 
 <br>
 
@@ -93,7 +104,8 @@
   <img style="width:400px" src="https://user-images.githubusercontent.com/72312559/159669958-ede9bc9d-a705-4aa9-bf7c-2c020529ff0f.gif">
 </p>
 
-###### ✔︎ billboard.js를 사용해 당일의 데이터를 시각화하였습니다.
+<hr>
+### Main Page
 
 <p align="center">
   <img width="911" alt="Screenshot_2022-03-24 05 45 54_XrX1qT" src="https://user-images.githubusercontent.com/72312559/159792680-bd8d14cd-3a63-4080-adbf-5b7f2511e7ec.png">
