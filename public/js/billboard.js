@@ -1,14 +1,67 @@
 const displayBillboard = () => {
-  const study = document.querySelector('#study').innerHTML;
-  const reading = document.querySelector('#reading').innerHTML;
-  const exercise = document.querySelector('#exercise').innerHTML;
-  const walk = document.querySelector('#walk').innerHTML;
-  const love = document.querySelector('#love').innerHTML;
-  const other = document.querySelector('#other').innerHTML;
-
   const chartArr = document.querySelectorAll('.pieChart');
+  const dateObj = document.querySelector('#dateObj').innerHTML.split(',');
+
+  const arr = [];
+
+  while (dateObj.length) {
+    arr.push(dateObj.splice(0, 7));
+  }
 
   chartArr.forEach((v) => {
+    const value = v.classList[1];
+    let isBlank = true;
+    let [study, reading, exercise, walk, love, other] = [0, 0, 0, 0, 0, 0];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (value === arr[i][0]) {
+        study = +arr[i][1];
+        reading = +arr[i][2];
+        exercise = +arr[i][3];
+        walk = +arr[i][4];
+        love = +arr[i][5];
+        other = +arr[i][6];
+        isBlank = false;
+        break;
+      }
+    }
+
+    if (isBlank) {
+      const chart = bb.generate({
+        data: {
+          columns: [['noData', 1]],
+          type: 'pie',
+        },
+        pie: {
+          label: {
+            show: false,
+          },
+        },
+
+        bindto: `#${v.id}`,
+      });
+
+      chart.legend.hide();
+
+      chart.data.colors({
+        noData: 'rgba(225,225,225,0.5)',
+      });
+
+      chart.resize({
+        width: 85,
+        height: 100,
+      });
+
+      return;
+    }
+
+    let formatStudy = convertMinutesToHours(study);
+    let formatReading = convertMinutesToHours(reading);
+    let formatExercise = convertMinutesToHours(exercise);
+    let formatWalk = convertMinutesToHours(walk);
+    let formatLove = convertMinutesToHours(love);
+    let formatOther = convertMinutesToHours(other);
+
     const chart = bb.generate({
       data: {
         columns: [
@@ -20,26 +73,34 @@ const displayBillboard = () => {
           ['기타', other],
         ],
         type: 'pie',
-        labels: { show: true, colors: 'black', centered: true },
+        onclick: function () {
+          Swal.fire(`
+            공부: ${formatStudy}\n
+            독서: ${formatReading}\n
+            운동: ${formatExercise}\n
+            산책: ${formatWalk}\n
+            데이트: ${formatLove}\n
+            기타: ${formatOther}
+            `);
+        },
       },
       pie: {
         label: {
           show: false,
         },
       },
-
       bindto: `#${v.id}`,
     });
 
     chart.legend.hide();
 
     chart.data.colors({
-      공부: '#3e95cd',
-      독서: '#8e5ea2',
-      운동: '#3cba9f',
-      산책: '#e8c3b9',
-      데이트: '#c45850',
-      기타: '#000000',
+      공부: 'rgb(223,212,228)',
+      독서: 'rgba(251,157,167,0.5)',
+      운동: 'rgba(251,222,162,0.5)',
+      산책: 'rgba(252,204,212,0.5)',
+      데이트: 'rgba(142,182,149,0.5)',
+      기타: 'rgba(62,149,205,0.5)',
     });
 
     chart.resize({
@@ -49,43 +110,17 @@ const displayBillboard = () => {
   });
 };
 
-const displayDetailBillboard = () => {
-  const study = document.querySelector('#study').innerHTML;
-  const reading = document.querySelector('#reading').innerHTML;
-  const exercise = document.querySelector('#exercise').innerHTML;
-  const walk = document.querySelector('#walk').innerHTML;
-  const love = document.querySelector('#love').innerHTML;
-  const other = document.querySelector('#other').innerHTML;
+function convertMinutesToHours(min) {
+  const hour =
+    String(Math.floor(min / 60)).length === 1
+      ? '0' + String(Math.floor(min / 60))
+      : String(Math.floor(min / 60));
+  const minutes =
+    String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
 
-  const chart = bb.generate({
-    data: {
-      labels: true,
-      columns: [
-        ['공부', study],
-        ['독서', reading],
-        ['운동', exercise],
-        ['산책', walk],
-        ['데이트', love],
-        ['기타', other],
-      ],
-      type: 'pie',
-    },
-    pie: {
-      label: {
-        show: false,
-      },
-    },
-    bindto: `#pieChart`,
-  });
+  return +hour + '시간' + +minutes + '분';
+}
 
-  chart.data.colors({
-    공부: '#3e95cd',
-    독서: '#8e5ea2',
-    운동: '#3cba9f',
-    산책: '#e8c3b9',
-    데이트: '#c45850',
-    기타: '#000000',
-  });
-};
+displayBillboard();
 
-export { displayBillboard, displayDetailBillboard };
+export { displayBillboard };

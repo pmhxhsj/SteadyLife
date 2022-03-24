@@ -71,4 +71,4 @@ const changeCorrectDate = () => {
   });
 };
 
-export default changeCorrectDate;
+changeCorrectDate();
