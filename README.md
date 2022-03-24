@@ -38,7 +38,7 @@
 
 <hr>
 <p align="center">
-<img width="800" alt="Screenshot_2022-03-23 17 40 35_jJ7xcy" src="https://user-images.githubusercontent.com/72312559/159662040-d8b60036-6567-41fa-83f5-ec783815f949.png">
+<img width="800" alt="Screenshot_2022-03-25 00 49 50_0aACgg" src="https://user-images.githubusercontent.com/72312559/159956484-79d15612-d2d4-40d1-9f7d-8343e93de5a9.png">
 </p>
 
 ###### ✔︎ 날짜 선택 두 가지 방법으로 가능합니다.
