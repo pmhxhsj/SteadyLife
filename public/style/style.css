@@ -248,6 +248,54 @@ footer {
   background-color: rgba(62, 149, 205, 0.5);
 }
 
+/* loading */
+
+.loader {
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 20%;
+  z-index: 1;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.loading {
+  position: absolute;
+  left: calc(50% - 30px);
+  top: 50%;
+  z-index: 1;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /*
 ##Device = Most of the Smartphones Mobiles (Portrait)
 ##Screen = B/w 320px to 479px
@@ -275,7 +323,7 @@ footer {
   #statistics {
     position: absolute;
     top: 400px;
-    right: 260px;
+    right: 250px;
   }
 
   .time-article-container {
@@ -326,6 +374,7 @@ footer {
   .color-palette {
     display: flex;
     width: 200px;
+    margin-right: 0px;
     align-items: flex-end;
     justify-content: right;
   }
@@ -333,5 +382,19 @@ footer {
   .color-palette div {
     flex: 1;
     font-size: 11px;
+  }
+
+  .loader {
+    position: absolute;
+    left: calc(50% - 30px);
+    top: 20%;
+    z-index: 1;
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
   }
 }

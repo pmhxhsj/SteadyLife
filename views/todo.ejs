@@ -96,8 +96,8 @@
       <div></div>
     </div>
     <br>
-
     <section class="container">
+      <div class="loader"></div>
       <div class="container-scroll">
         <div class="hidden to-do-create-container">
           <form action="/todo/write" method="post" class="form-box">
@@ -159,7 +159,6 @@
             </div>
           </form>
         </div>
-      
         <% 
         const calculateTime = (time) => {
           return time.split(':').reduce((acc, cur, idx) => {
@@ -218,7 +217,7 @@
         todoTasks.forEach(tasks => {
           let date = tasks.date  %>
 
-        <table class="main-table">
+        <table class="main-table hidden">
           <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
 
             <td id="table-category">
@@ -398,6 +397,8 @@
         </div>
       </div>
     </section>
+    <br />
+    <br />
     <footer>
         <div class="footer-img-container">
           <a href="https://github.com/pmhxhsj" target="_blank">
@@ -409,5 +410,15 @@
     <script type="module" src="/public/js/index.js"></script>
     <script src="/public/js/changeDate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+      $(window).load(function(){
+        $(".loader").fadeOut();
+        const list = document.querySelectorAll('.main-table');
+
+        for(let i = 0; i < list.length; i++) {
+          list[i].classList.remove('hidden');
+        }
+      });  
+    </script>
   </body>
 </html>

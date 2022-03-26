@@ -400,7 +400,8 @@
               <div class="day">Fri</div>
               <div class="day">Sat</div>
             </div>
-            <div class="dates"></div>
+            <div class="loading"></div>
+            <div class="dates hidden"></div>
             <br>
             <div class="color-container">
               <div class="color-palette">
@@ -436,5 +437,11 @@
     <script type="module" src="/public/js/calendar.js"></script>
     <script type="module" src="/public/js/billboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+      $(window).load(function(){
+        $(".loading").fadeOut();
+        document.querySelector('.dates').classList.remove('hidden');
+      }); 
+    </script>
   </body>
 </html>
