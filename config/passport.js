@@ -15,7 +15,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: '/auth/google/callback',
+      // callbackURL: '/auth/google/callback',
+      callbackURL: 'https://steadylife.herokuapp.com/auth/google/callback',
       passReqToCallback: true,
     },
     function (request, accessToken, refreshToken, profile, done) {
