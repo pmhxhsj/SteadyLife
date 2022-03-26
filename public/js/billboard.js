@@ -1,11 +1,11 @@
 const displayBillboard = () => {
   const chartArr = document.querySelectorAll('.pieChart');
   const dateObj = document.querySelector('#dateObj').innerHTML.split(',');
-
-  const arr = [];
+  const calendarWidth = document.querySelector('.main');
+  const dataByDate = [];
 
   while (dateObj.length) {
-    arr.push(dateObj.splice(0, 7));
+    dataByDate.push(dateObj.splice(0, 7));
   }
 
   chartArr.forEach((v) => {
@@ -13,14 +13,14 @@ const displayBillboard = () => {
     let isBlank = true;
     let [study, reading, exercise, walk, love, other] = [0, 0, 0, 0, 0, 0];
 
-    for (let i = 0; i < arr.length; i++) {
-      if (value === arr[i][0]) {
-        study = +arr[i][1];
-        reading = +arr[i][2];
-        exercise = +arr[i][3];
-        walk = +arr[i][4];
-        love = +arr[i][5];
-        other = +arr[i][6];
+    for (let i = 0; i < dataByDate.length; i++) {
+      if (value === dataByDate[i][0]) {
+        study = +dataByDate[i][1];
+        reading = +dataByDate[i][2];
+        exercise = +dataByDate[i][3];
+        walk = +dataByDate[i][4];
+        love = +dataByDate[i][5];
+        other = +dataByDate[i][6];
         isBlank = false;
         break;
       }
@@ -37,6 +37,9 @@ const displayBillboard = () => {
             show: false,
           },
         },
+        options: {
+          responsive: false,
+        },
 
         bindto: `#${v.id}`,
       });
@@ -47,11 +50,10 @@ const displayBillboard = () => {
         noData: 'rgba(225,225,225,0.5)',
       });
 
-      // chart.resize({
-      //   width: 85,
-      //   height: 100,
-      // });
-      open_chatroom(chart);
+      chart.resize({
+        width: calendarWidth.offsetWidth / 7,
+        height: 100,
+      });
 
       return;
     }
@@ -104,7 +106,10 @@ const displayBillboard = () => {
       기타: 'rgba(62,149,205,0.5)',
     });
 
-    open_chatroom(chart);
+    chart.resize({
+      width: calendarWidth.offsetWidth / 7,
+      height: 100,
+    });
   });
 };
 
@@ -119,25 +124,6 @@ function convertMinutesToHours(min) {
   return +hour + '시간' + +minutes + '분';
 }
 
-function open_chatroom(cc) {
-  var windowWidth = $(window).width();
-  if (windowWidth < 500) {
-    //창 가로 크기가 500 미만일 경우
-    cc.resize({
-      width: 50,
-      height: 70,
-    });
-  } else {
-    //창 가로 크기가 500보다 클 경우
-    cc.resize({
-      width: 85,
-      height: 100,
-    });
-  }
-}
-
-//kkotkkio.tistory.com/52 [KKOTKKIO'S CAVE]
-
-출처: https: displayBillboard();
+displayBillboard();
 
 export { displayBillboard };
