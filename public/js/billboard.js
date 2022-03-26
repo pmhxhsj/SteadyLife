@@ -104,10 +104,7 @@ const displayBillboard = () => {
       기타: 'rgba(62,149,205,0.5)',
     });
 
-    chart.resize({
-      width: 85,
-      height: 100,
-    });
+    open_chatroom(chart);
   });
 };
 
@@ -127,8 +124,8 @@ function open_chatroom(cc) {
   if (windowWidth < 500) {
     //창 가로 크기가 500 미만일 경우
     cc.resize({
-      width: 40,
-      height: 60,
+      width: 50,
+      height: 70,
     });
   } else {
     //창 가로 크기가 500보다 클 경우
