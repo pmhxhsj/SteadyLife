@@ -51,7 +51,7 @@ const displayBillboard = () => {
       //   width: 85,
       //   height: 100,
       // });
-      open_chatroom();
+      open_chatroom(chart);
 
       return;
     }
@@ -122,17 +122,17 @@ function convertMinutesToHours(min) {
   return +hour + '시간' + +minutes + '분';
 }
 
-function open_chatroom() {
+function open_chatroom(cc) {
   var windowWidth = $(window).width();
   if (windowWidth < 500) {
     //창 가로 크기가 500 미만일 경우
-    chart.resize({
+    cc.resize({
       width: 40,
       height: 60,
     });
   } else {
     //창 가로 크기가 500보다 클 경우
-    chart.resize({
+    cc.resize({
       width: 85,
       height: 100,
     });
