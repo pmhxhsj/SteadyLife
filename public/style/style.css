@@ -209,3 +209,129 @@ footer {
 .swal2-popup {
   font-size: 12px !important;
 }
+
+/* color-palette css */
+
+.color-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.color-palette {
+  display: flex;
+  width: 300px;
+  margin-right: 10px;
+  align-items: flex-end;
+  justify-content: right;
+}
+
+.color-palette div {
+  flex: 1;
+  font-size: 12px;
+}
+
+#study-color {
+  background-color: rgb(223, 212, 228);
+}
+#reading-color {
+  background-color: rgba(251, 157, 167, 0.5);
+}
+#exercise-color {
+  background-color: rgba(251, 222, 162, 0.5);
+}
+#walk-color {
+  background-color: rgba(252, 204, 212, 0.5);
+}
+#date-color {
+  background-color: rgba(142, 182, 149, 0.5);
+}
+#other-color {
+  background-color: rgba(62, 149, 205, 0.5);
+}
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+##Device = 대부분의 스마트폰 모바일 기기(세로)
+##Screen = 320px에서 479px 사이
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    position: relative;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: rgba(179, 218, 255, 0.3);
+    height: 450px;
+    width: 320px;
+    margin: auto;
+  }
+
+  .container-scroll {
+    overflow-y: auto;
+    height: 370px;
+    width: 270px;
+    margin: auto;
+  }
+
+  #statistics {
+    position: absolute;
+    top: 400px;
+    right: 260px;
+  }
+
+  .time-article-container {
+    position: absolute;
+    top: 130px;
+  }
+
+  .time-article-view {
+    align-items: center;
+    position: absolute;
+    left: -15px;
+    width: 300px;
+    height: 260px;
+    border-radius: 30px;
+    background-color: rgba(7, 8, 56, 0.3);
+  }
+
+  #help-container {
+    position: absolute;
+    top: 140px;
+    left: 10px;
+  }
+
+  .help-view {
+    position: absolute;
+    left: 10px;
+    padding: 20px;
+    width: 280px;
+    height: 240px;
+    font-size: 30px;
+    border-radius: 30px;
+    background-color: #dce2f0;
+  }
+
+  #help-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 30px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .swal2-popup {
+    font-size: 8px !important;
+  }
+
+  .color-palette {
+    display: flex;
+    width: 200px;
+    align-items: flex-end;
+    justify-content: right;
+  }
+
+  .color-palette div {
+    flex: 1;
+    font-size: 11px;
+  }
+}

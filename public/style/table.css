@@ -40,3 +40,20 @@ table {
 .main-table:active {
   transform: scale(1.03);
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .main-table {
+    transition: 0.25s;
+    width: 250px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  #table-title {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  #table-time {
+    font-size: 10px;
+  }
+}

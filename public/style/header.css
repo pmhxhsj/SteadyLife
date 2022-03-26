@@ -42,3 +42,31 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .start-header {
+    flex: 1;
+  }
+
+  .main-text-container {
+    flex: 2;
+  }
+
+  .end-header {
+    flex: 1;
+  }
+
+  #logout-btn {
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
+  }
+}

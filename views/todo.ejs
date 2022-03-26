@@ -56,7 +56,7 @@
         </div>
         <div class="end-header">
         <a href="/auth/logout">
-          <button class="standard-btn w-btn w-btn-indigo">Logout</button>
+          <button id="logout-btn" class="standard-btn w-btn w-btn-indigo">Logout</button>
         </a>
         </div>
       </div>
@@ -306,7 +306,7 @@
                   <td>
                     <span style="font-size: 70px;"><%= restSprout %></span>
                     <% if(restTime >= 360) { %>
-                      <span style="font-size: 25px;">💯</span>
+                      <br /><span style="font-size: 25px;">💯</span>
                     <% } %> 
                   </td>  
               </tr>
@@ -356,7 +356,7 @@
               <div></div>
               <div></div>
               <div>
-                <button id="help-close-btn" class="w-btn w-btn-indigo small-standard-btn" style="color:tomato">Close</button>
+                <button id="help-close-btn" class="w-btn w-btn-indigo small-standard-btn" style="color:tomato">x</button>
               </div>
             </div>
 
@@ -398,16 +398,6 @@
         </div>
       </div>
     </section>
-    <br>
-    <br>
-    <div class="billboard-container">
-      <div></div>
-      <div></div>
-      <div id="pieChart"></div>
-      <div></div>
-      <div></div>
-    </div>
-
     <footer>
         <div class="footer-img-container">
           <a href="https://github.com/pmhxhsj" target="_blank">
@@ -417,7 +407,6 @@
         </div>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
-    <script src="/public/js/mainBillboard.js"></script>
     <script src="/public/js/changeDate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </body>

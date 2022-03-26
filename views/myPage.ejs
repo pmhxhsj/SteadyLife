@@ -56,7 +56,7 @@
         </div>
         <div class="end-header">
         <a href="/auth/logout">
-          <button class="standard-btn w-btn w-btn-indigo">Logout</button>
+          <button id="logout-btn" class="standard-btn w-btn w-btn-indigo">Logout</button>
         </a>
         </div>
       </div>
@@ -401,6 +401,17 @@
               <div class="day">Sat</div>
             </div>
             <div class="dates"></div>
+            <br>
+            <div class="color-container">
+              <div class="color-palette">
+                <div id="study-color">공부</div>
+                <div id="reading-color">독서</div>
+                <div id="exercise-color">운동</div>
+                <div id="walk-color">산책</div>
+                <div id="date-color">데이트</div>
+                <div id="other-color">기타</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -410,7 +421,6 @@
       const date = v.date;
       dateArr.push(date);
     }) %>
-
     <span id="dateInUse" class="hidden"><%= dateArr %></span>
     <br>
     <br>
