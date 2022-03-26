@@ -53,14 +53,14 @@ const renderCalender = () => {
     uniqueDateInUse.includes(value)
       ? (dates[
           i
-        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart ${value}" id="pieChart${date}" ></div></div>`)
+        ] = `<div class="date" style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart ${value}" id="pieChart${date}" ></div></div>`)
       : i >= firstDateIndex && i < lastDateIndex + 1
       ? (dates[
           i
-        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart" id="pieChart${date}" ></div></div>`)
+        ] = `<div class="date" style="position:static; width:calc(100% / 7); height:100px"><div>${date}</div><div class="pieChart" id="pieChart${date}" ></div></div>`)
       : (dates[
           i
-        ] = `<div style="position:static; width:calc(100% / 7); height:100px"><span></span></div>`);
+        ] = `<div class="date" style="position:static; width:calc(100% / 7); height:100px"><span></span></div>`);
   });
 
   document.querySelector('.dates').innerHTML = dates.join('');
@@ -78,6 +78,7 @@ const renderCalender = () => {
 
 renderCalender();
 displayBillboard();
+
 document.querySelector('.go-prev').addEventListener('click', (e) => {
   date.setMonth(date.getMonth() - 1);
   renderCalender();

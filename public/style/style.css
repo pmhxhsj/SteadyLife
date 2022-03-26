@@ -310,6 +310,7 @@ footer {
     position: absolute;
     top: 400px;
     right: 250px;
+    font-size: 10px;
   }
 
   .time-article-container {

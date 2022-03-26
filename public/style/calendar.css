@@ -20,6 +20,11 @@
   margin-top: 0px;
 }
 
+#welcome {
+  font-size: 16px;
+  color: rgb(21, 53, 139);
+}
+
 .year-month {
   font-size: 15px;
   color: rgb(21, 53, 139);
@@ -72,11 +77,6 @@
   font-size: 12px;
 }
 
-.date input {
-  width: 50px;
-  border: none;
-}
-
 .day:nth-child(7n + 1),
 .date:nth-child(7n + 1) {
   color: #d13e3e;
@@ -110,13 +110,6 @@
   content: '';
 }
 
-.date:hover {
-  border: 0.5px solid tomato;
-  /* transform: scale(1.03); */
-  cursor: pointer;
-  animation: fade-in 0.2s;
-}
-
 .date input :active {
   border: none;
 }
@@ -127,5 +120,15 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .day {
+    font-size: 12px;
+  }
+
+  #welcome {
+    font-size: 12px;
   }
 }

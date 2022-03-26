@@ -103,9 +103,7 @@
           <form action="/todo/write" method="post" class="form-box">
             <table class="input-table">
               <tr style="height: 50px">
-                <br />
-                <br />
-                <td colspan="3">
+                <td colspan="4">
                   <select id="todo-category-input" class="input-category" name="category">
                     <option value="Category" disabled selected="selected">Category</option>
                     <option value="공부">공부</option>
@@ -118,7 +116,8 @@
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td colspan="3">
+                <br>
+                <td colspan="4">
                   <input
                     id="todo-title-input"
                     class="input-title"
@@ -129,7 +128,7 @@
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td>
+                <td colspan="2">
                   <input
                     id="todo-start-time-input"
                     class="input-time timepicker"
@@ -137,8 +136,7 @@
                     name="startTime"
                   />
                 </td>
-                <td>~</td>
-                <td>
+                <td colspan="2">
                   <input
                     id="todo-end-time-input"
                     class="input-time timepicker"
@@ -398,12 +396,6 @@
     <br />
     <br />
     <footer>
-        <div class="footer-img-container">
-          <a href="https://github.com/pmhxhsj" target="_blank">
-            <img src="/public/images/git-img.png" style="width: 25px; height: 25px; margin-right: 10px;"> 
-          </a>
-          <img src="/public/images/email-img.png" onclick="Swal.fire('pmhxxhsj@gmail.com')" style="width: 25px; height: 25px;">
-        </div>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
     <script src="/public/js/changeDate.js"></script>
