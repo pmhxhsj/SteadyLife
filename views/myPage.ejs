@@ -73,268 +73,63 @@
         </button>
       </div>
     </div>
-
-    <section class="container hidden">
-      <div class="container-scroll">
-        <div class="hidden to-do-create-container">
-          <form action="/todo/write" method="post" class="form-box">
-            <table class="input-table">
-              <tr style="height: 50px">
-                <td></td>
-                <br />
-                <td colspan="3">
-                  <select id="todo-category-input" class="input-category" name="category">
-                    <option value="Category" disabled selected="selected">Category</option>
-                    <option value="공부">공부</option>
-                    <option value="독서">독서</option>
-                    <option value="운동">운동</option>
-                    <option value="산책">산책</option>
-                    <option value="데이트">데이트</option>
-                    <option value="기타">기타</option>
-                  </select>
-                </td>
-              </tr>
-              <tr style="height: 50px">
-                <td></td>
-                <td colspan="3">
-                  <input
-                    id="todo-title-input"
-                    class="input-title"
-                    type="text"
-                    placeholder="Title"
-                    name="title"
-                  />
-                </td>
-              </tr>
-              <tr style="height: 50px">
-                <td></td>
-                <td>
-                  <input
-                    id="todo-start-time-input"
-                    class="input-time timepicker"
-                    type="time"
-                    name="startTime"
-                  />
-                </td>
-                <td>~</td>
-                <td>
-                  <input
-                    id="todo-end-time-input"
-                    class="input-time timepicker"
-                    type="time"
-                    name="endTime"
-                  />
-                </td>
-              </tr>
-            </table>
-            <br>
-            <div class="form-button-container">
-              <div></div>
-              <button id="create-todo-btn" type="submit" class="w-btn w-btn-indigo standard-btn">Add</button>
-              <button type="button" id="form-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>
-              <div></div>
-            </div>
-          </form>
-        </div>
+  
       
-        <% 
-        const calculateTime = (time) => {
-          return time.split(':').reduce((acc, cur, idx) => {
-            if (idx === 0) return acc + Number(cur * 60);
-            else return acc + Number(cur);
-          }, 0);
-         };
+    <% 
+    const calculateTime = (time) => {
+      return time.split(':').reduce((acc, cur, idx) => {
+        if (idx === 0) return acc + Number(cur * 60);
+        else return acc + Number(cur);
+      }, 0);
+      };
 
-        const convertMinutesToHours = (min) => {
-          const hour =
-            String(Math.floor(min / 60)).length === 1
-              ? '0' + String(Math.floor(min / 60))
-              : String(Math.floor(min / 60));
-          const minutes =
-            String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
+    const convertMinutesToHours = (min) => {
+      const hour =
+        String(Math.floor(min / 60)).length === 1
+          ? '0' + String(Math.floor(min / 60))
+          : String(Math.floor(min / 60));
+      const minutes =
+        String(min % 60).length === 1 ? '0' + String(min % 60) : String(min % 60);
 
-          return hour + ':' + minutes;
-        };
+      return hour + ':' + minutes;
+    };
 
-        let studyTime = 0;
-        let restTime = 0;
+    let studyTime = 0;
+    let restTime = 0;
 
-        todoTasks.forEach(ele => {
-          if(ele.category === "공부" || ele.category === "독서"){
-            studyTime += calculateTime(ele.remainingTime);
-          } else {
-            restTime += calculateTime(ele.remainingTime);
-          }
-        });
-        
-        let [study, exercise, walk, reading, love, other] = [0,0,0,0,0,0]
+    todoTasks.forEach(ele => {
+      if(ele.category === "공부" || ele.category === "독서"){
+        studyTime += calculateTime(ele.remainingTime);
+      } else {
+        restTime += calculateTime(ele.remainingTime);
+      }
+    });
+    
+    let [study, exercise, walk, reading, love, other] = [0,0,0,0,0,0]
 
-        todoTasks.forEach(ele => {
-          switch (ele.category) {
-            case "공부":
-              study += calculateTime(ele.remainingTime);
-              break;
-            case "독서":
-              reading += calculateTime(ele.remainingTime);
-              break;
-            case "운동":
-              exercise += calculateTime(ele.remainingTime);
-              break;  
-            case "산책":
-              walk += calculateTime(ele.remainingTime);
-              break;
-            case "데이트":
-              love += calculateTime(ele.remainingTime);
-              break;
-            default:
-              other += calculateTime(ele.remainingTime);
-              break;
-          }
-        });
+    todoTasks.forEach(ele => {
+      switch (ele.category) {
+        case "공부":
+          study += calculateTime(ele.remainingTime);
+          break;
+        case "독서":
+          reading += calculateTime(ele.remainingTime);
+          break;
+        case "운동":
+          exercise += calculateTime(ele.remainingTime);
+          break;  
+        case "산책":
+          walk += calculateTime(ele.remainingTime);
+          break;
+        case "데이트":
+          love += calculateTime(ele.remainingTime);
+          break;
+        default:
+          other += calculateTime(ele.remainingTime);
+          break;
+      }
+    }); %>
 
-        todoTasks.forEach(tasks => {
-          let date = tasks.date  %>
-
-        <table class="main-table">
-          <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
-
-            <td id="table-category">
-            <% switch (tasks.category) {
-                  case "공부": %>
-                    📚            
-                    <% break;
-                  case "운동": %>  
-                    💪🏻       
-                <% break;
-                  case "산책": %>
-                    🚶🏻‍♀️           
-                <% break;
-                  case "독서": %>
-                    📖           
-                <% break;
-                  case "데이트": %>
-                    ❣️            
-                <% break;
-                  default: 
-                    break; } %>
-            </td>
-            <td id="table-title" class="table-title">
-              <%= tasks.title %>
-            </td>
-            <td id="table-time" class="table-time"><%= tasks.startTime %> ~ <%= tasks.endTime %></td>
-          
-          </tr>
-        </table>
-        <br />
-        <% }); %>
-        
-        <div class="time-article-container hidden">
-          <div class="time-article-view">
-            <table id="time-article">
-              <th style="width: 120px;">
-                Study
-              </th>
-              <th style="width: 120px;">
-                Rest
-              </th>
-              <tr>
-                <td>
-                  <%= Math.floor(studyTime/60) %>시간 <%= studyTime%60 %>분
-                </td>
-                <td>
-                  <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
-                </td>
-              </tr>
-              <tr style="height: 100px;">
-
-                <% let studyTree = '';
-                   let restSprout = '';
-
-                   const totalStudyTime = Math.floor(studyTime / 60);
-                   const totalRestTime = Math.floor(restTime / 60);
-
-                   
-                   totalStudyTime < 1 ? studyTree="🐝" :
-                   totalStudyTime <= 2 ? studyTree="🌱" :
-                   totalStudyTime <= 3 ? studyTree="🌿" :
-                   totalStudyTime <= 4 ? studyTree="🍀" :
-                   totalStudyTime <= 5 ? studyTree="🪴" :
-                   totalStudyTime <= 6 ? studyTree="🌲" : studyTree="🌳"; 
-
-                   totalRestTime < 1 ? restSprout="🥀" :
-                   totalRestTime <= 2 ? restSprout="🌺" :
-                   totalRestTime <= 3 ? restSprout="🌷" :
-                   totalRestTime <= 4 ? restSprout="🌹" :
-                   totalRestTime <= 5 ? restSprout="🌸" :
-                   totalRestTime <= 6 ? restSprout="🌼" : restSprout="🌻"; %>
-                  <td> 
-                    <span style="font-size: 70px;"><%= studyTree %></span><br />
-                    <% if(studyTime >= 360) { %>
-                    <span style="font-size: 25px;">💯</span>
-                    <% } %> 
-                 </td>
-                  <td>
-                    <span style="font-size: 70px;"><%= restSprout %></span>
-                    <% if(restTime >= 360) { %>
-                      <span style="font-size: 25px;">💯</span>
-                    <% } %> 
-                  </td>  
-              </tr>
-            </table>
-            <br />
-            <div id="time-article-button">
-              <div></div>
-              <div>
-                <button id="time-article-close-button" class="w-btn w-btn-indigo standard-btn" style="color: tomato;">Close</button>
-              </div>
-              <div>
-                <button id="time-article-help-button" class="w-btn w-btn-indigo">?</button>  
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="help-container" class="hidden">
-          <div class="help-view">
-            <span id="help-title">Every Hour</span>
-            <br />
-            <br />
-            <table>
-              <tr style="height: 50px;">
-                <td> 🐝 </td>
-                <td> 🌱 </td>
-                <td> 🌿 </td>
-                <td> 🍀 </td>
-                <td> 🪴 </td>
-                <td> 🌲 </td>
-                <td> 🌳 </td>
-              </tr>
-              <tr>
-                <td>🥀</td>
-                <td>🌺</td>
-                <td>🌷</td>
-                <td>🌹</td>
-                <td>🌸</td>
-                <td>🌼</td>
-                <td>🌻</td>
-              </tr>
-            </table>
-            <br />
-
-            <div class="help-btn-container">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div>
-                <button id="help-close-btn" class="w-btn w-btn-indigo small-standard-btn" style="color:tomato">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <button id="statistics" class="w-btn w-btn-indigo small-standard-btn">Today</button>
-      </div>
-      <button id="create-btn" class="w-btn w-btn-indigo small-standard-btn">+</button>
-    </section>
      
     <span id="study" class="hidden"><%= study %></span>
     <span id="exercise" class="hidden"><%= exercise %></span> 
@@ -389,8 +184,11 @@
             </div>
           </div>
           <br>
+
+          <div class="loader"></div>
+
           <div style="margin-bottom: 30px;"><%= user.displayName %>님 안녕하세요😀</div>
-          <div class="main">
+          <div class="main hidden">
             <div class="days">
               <div class="day">Sun</div>
               <div class="day">Mon</div>
@@ -400,8 +198,7 @@
               <div class="day">Fri</div>
               <div class="day">Sat</div>
             </div>
-            <div class="loader"></div>
-            <div class="dates hidden"></div>
+            <div class="dates"></div>
             <br>
             <div class="color-container">
               <div class="color-palette">
@@ -433,14 +230,14 @@
           <img src="/public/images/email-img.png" onclick="Swal.fire('pmhxxhsj@gmail.com')" style="width: 25px; height: 25px;">
         </div>
     </footer>
-    <script type="module" src="/public/js/index.js"></script>
+    <!-- <script type="module" src="/public/js/index.js"></script> -->
     <script type="module" src="/public/js/calendar.js"></script>
     <script type="module" src="/public/js/billboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
       $(window).load(function(){
         $(".loader").fadeOut();
-        document.querySelector('.dates').classList.remove('hidden');
+        document.querySelector('.main').classList.remove('hidden');
       }); 
     </script>
   </body>
