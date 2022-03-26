@@ -193,8 +193,18 @@
           <br>
 
           <div class="loader"></div>
-
-          <div id="welcome" style="margin-bottom: 30px;">🗓 activity calendar for <%= user.displayName %></div>
+          <% let name;
+          
+            if(user.displayName.length === 3) {
+              name = user.displayName.substring(1);
+            } else if(user.displayName.length === 4) {
+              name = user.displayName.substring(2);
+            } else {
+              name = user.displayName;
+            }
+          
+          %>
+          <div id="welcome" style="margin-bottom: 30px;">📆 activity calendar for <strong><%= name %></strong></div>
           <div class="main">
             <div class="days hidden">
               <div class="day">Sun</div>
