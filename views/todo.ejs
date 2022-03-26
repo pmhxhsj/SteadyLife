@@ -108,6 +108,7 @@
                     <option value="Category" disabled selected="selected">Category</option>
                     <option value="공부">공부</option>
                     <option value="독서">독서</option>
+                    <option value="수면">수면</option>
                     <option value="운동">운동</option>
                     <option value="산책">산책</option>
                     <option value="데이트">데이트</option>
@@ -185,7 +186,7 @@
           }
         });
         
-        let [study, exercise, walk, reading, love, other] = [0,0,0,0,0,0]
+        let [study, exercise, walk, reading, love, sleep, other] = [0, 0, 0, 0, 0, 0, 0];
 
         todoTasks.forEach(ele => {
           switch (ele.category) {
@@ -204,6 +205,8 @@
             case "데이트":
               love += calculateTime(ele.remainingTime);
               break;
+            case "수면":
+              sleep += calculateTime(ele.remainingTime);
             default:
               other += calculateTime(ele.remainingTime);
               break;
@@ -228,7 +231,10 @@
                     🚶🏻‍♀️           
                 <% break;
                   case "독서": %>
-                    📖           
+                    📖   
+                <% break;
+                  case "수면": %>
+                    🛌          
                 <% break;
                   case "데이트": %>
                     ❣️            
@@ -249,6 +255,7 @@
         <span id="study" class="hidden"><%= study %></span>
         <span id="exercise" class="hidden"><%= exercise %></span> 
         <span id="reading" class="hidden"><%= reading %></span>
+        <span id="sleep" class="hidden"><%= sleep %></span> 
         <span id="love" class="hidden"><%= love %></span> 
         <span id="walk" class="hidden"><%= walk %></span>
         <span id="other" class="hidden"><%= other %></span> 
@@ -361,41 +368,18 @@
       </div>
       <button id="create-btn" class="w-btn w-btn-indigo small-standard-btn">+</button>
     </section>
-
-    <section class="mypage">
-      <div class="mypage-container hidden">
-        <div class="calendar hidden">
-          <div style="margin-bottom: 30px;"><%= user.displayName %>님 안녕하세요😀</div>
-          <br />
-          <div class="mypage-header">
-            <div class="nav">
-              <div>
-                <button class="nav-btn go-prev">&lt;</button>
-              </div>
-              <div class="year-month"></div>
-              <div>
-                <button class="nav-btn go-next">&gt;</button>
-              </div>
-            </div>
-          </div>
-          <div class="main">
-            <div class="days">
-              <div class="day">Sun</div>
-              <div class="day">Mon</div>
-              <div class="day">Tue</div>
-              <div class="day">Wed</div>
-              <div class="day">Thu</div>
-              <div class="day">Fri</div>
-              <div class="day">Sat</div>
-            </div>
-            <div class="dates"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <br />
+    <br />
     <br />
     <br />
     <footer>
+      <p>
+        <a onclick="Swal.fire('pmhxxhsj@gmail.com')">Email</a> &nbsp;|&nbsp; 
+        <a href='https://parkparkpark.tistory.com/' target='_blank'>Blog</a>&nbsp;|&nbsp; 
+        <a href='https://github.com/pmhxhsj' target='_blank'>Github</a>
+        <br/>
+        <span>Copyright 2022. Wony. All Rights Reserved.</span>
+      </p>
     </footer>
     <script type="module" src="/public/js/index.js"></script>
     <script src="/public/js/changeDate.js"></script>

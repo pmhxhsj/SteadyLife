@@ -105,7 +105,7 @@
       }
     });
     
-    let [study, exercise, walk, reading, love, other] = [0,0,0,0,0,0]
+    let [study, exercise, walk, reading, sleep, love, other] = [0, 0, 0, 0, 0, 0, 0];
 
     todoTasks.forEach(ele => {
       switch (ele.category) {
@@ -121,6 +121,9 @@
         case "산책":
           walk += calculateTime(ele.remainingTime);
           break;
+        case "수면":
+          sleep += calculateTime(ele.remainingTime);
+          break;
         case "데이트":
           love += calculateTime(ele.remainingTime);
           break;
@@ -135,13 +138,14 @@
     <span id="exercise" class="hidden"><%= exercise %></span> 
     <span id="reading" class="hidden"><%= reading %></span>
     <span id="love" class="hidden"><%= love %></span> 
+    <span id="sleep" class="hidden"><%= sleep %></span> 
     <span id="walk" class="hidden"><%= walk %></span>
     <span id="other" class="hidden"><%= other %></span> 
 
     <% let obj = {};
 
        todoTasks.forEach(v => {
-         if(!obj[v.date]) obj[v.date] = [0,0,0,0,0,0];
+         if(!obj[v.date]) obj[v.date] = [0,0,0,0,0,0,0];
        });
 
        todoTasks.forEach(ele => {
@@ -158,11 +162,14 @@
             case "산책":
               obj[ele.date][3] += calculateTime(ele.remainingTime);
               break;
-            case "데이트":
+            case "수면":
               obj[ele.date][4] += calculateTime(ele.remainingTime);
               break;
-            default:
+            case "데이트":
               obj[ele.date][5] += calculateTime(ele.remainingTime);
+              break;
+            default:
+              obj[ele.date][6] += calculateTime(ele.remainingTime);
               break;
           }
         }); %>
@@ -187,9 +194,9 @@
 
           <div class="loader"></div>
 
-          <div style="margin-bottom: 30px;"><%= user.displayName %>님 안녕하세요😀</div>
-          <div class="main hidden">
-            <div class="days">
+          <div id="welcome" style="margin-bottom: 30px;">🗓 activity calendar for <%= user.displayName %></div>
+          <div class="main">
+            <div class="days hidden">
               <div class="day">Sun</div>
               <div class="day">Mon</div>
               <div class="day">Tue</div>
@@ -204,6 +211,7 @@
               <div class="color-palette">
                 <div id="study-color">공부</div>
                 <div id="reading-color">독서</div>
+                <div id="sleep-color">수면</div>
                 <div id="exercise-color">운동</div>
                 <div id="walk-color">산책</div>
                 <div id="date-color">데이트</div>
@@ -220,24 +228,26 @@
       dateArr.push(date);
     }) %>
     <span id="dateInUse" class="hidden"><%= dateArr %></span>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
+    <br />
     <footer>
-        <div class="footer-img-container">
-          <a href="https://github.com/pmhxhsj" target="_blank">
-            <img src="/public/images/git-img.png" style="width: 25px; height: 25px; margin-right: 10px;"> 
-          </a>
-          <img src="/public/images/email-img.png" onclick="Swal.fire('pmhxxhsj@gmail.com')" style="width: 25px; height: 25px;">
-        </div>
+      <p>
+        <a onclick="Swal.fire('pmhxxhsj@gmail.com')">Email</a> &nbsp;|&nbsp; 
+        <a href='https://parkparkpark.tistory.com/' target='_blank'>Blog</a>&nbsp;|&nbsp; 
+        <a href='https://github.com/pmhxhsj' target='_blank'>Github</a>
+        <br/>
+        <span>Copyright 2022. Wony. All Rights Reserved.</span>
+      </p>
     </footer>
-    <!-- <script type="module" src="/public/js/index.js"></script> -->
     <script type="module" src="/public/js/calendar.js"></script>
     <script type="module" src="/public/js/billboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
       $(window).load(function(){
         $(".loader").fadeOut();
-        document.querySelector('.main').classList.remove('hidden');
+        document.querySelector('.days').classList.remove('hidden');
       }); 
     </script>
   </body>
