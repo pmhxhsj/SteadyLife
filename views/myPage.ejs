@@ -29,7 +29,7 @@
       href="/public/style/calendar.css"
     />
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <meta name="viewport" content="height=device-height, initial-scale=0.7, minimum-scale=1.0, maximum-scale=1.0 ,user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/datalab.min.css">
@@ -400,7 +400,7 @@
               <div class="day">Fri</div>
               <div class="day">Sat</div>
             </div>
-            <div class="loading"></div>
+            <div class="loader"></div>
             <div class="dates hidden"></div>
             <br>
             <div class="color-container">
@@ -439,7 +439,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
       $(window).load(function(){
-        $(".loading").fadeOut();
+        $(".loader").fadeOut();
         document.querySelector('.dates').classList.remove('hidden');
       }); 
     </script>

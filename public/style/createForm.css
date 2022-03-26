@@ -30,7 +30,7 @@
   position: absolute;
   top: 500px;
   left: 360px;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 select {
@@ -38,7 +38,7 @@ select {
   -webkit-appearance: none;
   appearance: none;
   text-align: center;
-  text-align: -webkit-center;
+  text-align-last: center;
   width: 100px;
   height: 30px;
   border-radius: 10px;
@@ -60,17 +60,18 @@ select {
 
 .input-time {
   width: 100px;
-  height: 20px;
+  height: 30px;
   border-radius: 10px;
-  text-align: -webkit-center;
-  font-size: 12px;
+  text-align-last: center;
+  text-align: center;
+  font-size: 11px;
   border: rgba(179, 218, 255, 0.7) 1px solid;
 }
 
 .input-title {
   width: 95%;
   height: 40px;
-  text-align: -webkit-center;
+  text-align-last: center;
   border-radius: 10px;
   border: rgba(179, 218, 255, 0.7) 1px solid;
 }
@@ -106,7 +107,7 @@ select {
     position: absolute;
     top: 400px;
     left: 250px;
-    font-size: 25px;
+    font-size: 14px;
   }
 
   .form-box {

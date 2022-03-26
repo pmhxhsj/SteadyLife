@@ -29,7 +29,7 @@
       href="/public/style/calendar.css"
     />
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/datalab.min.css">
@@ -96,14 +96,14 @@
       <div></div>
     </div>
     <br>
-    <section class="container">
-      <div class="loader"></div>
+    <div class="loader"></div>
+    <section class="container hidden">
       <div class="container-scroll">
         <div class="hidden to-do-create-container">
           <form action="/todo/write" method="post" class="form-box">
             <table class="input-table">
               <tr style="height: 50px">
-                <td></td>
+                <br />
                 <br />
                 <td colspan="3">
                   <select id="todo-category-input" class="input-category" name="category">
@@ -118,7 +118,6 @@
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td></td>
                 <td colspan="3">
                   <input
                     id="todo-title-input"
@@ -130,7 +129,6 @@
                 </td>
               </tr>
               <tr style="height: 50px">
-                <td></td>
                 <td>
                   <input
                     id="todo-start-time-input"
@@ -217,7 +215,7 @@
         todoTasks.forEach(tasks => {
           let date = tasks.date  %>
 
-        <table class="main-table hidden">
+        <table class="main-table">
           <tr class="table-tr" onclick="location.href='/todo/edit/<%= tasks._id %>'">
 
             <td id="table-category">
@@ -413,11 +411,7 @@
     <script>
       $(window).load(function(){
         $(".loader").fadeOut();
-        const list = document.querySelectorAll('.main-table');
-
-        for(let i = 0; i < list.length; i++) {
-          list[i].classList.remove('hidden');
-        }
+        document.querySelector('.container').classList.remove('hidden');
       });  
     </script>
   </body>

@@ -30,7 +30,6 @@ const displayTodo = () => {
     todobtn.classList.add('focus');
     mypagebtn.classList.remove('focus');
 
-    todo.classList.remove('hidden');
     todo.classList.add('appear');
     mypage.classList.add('hidden');
     calendar.classList.add('hidden');
