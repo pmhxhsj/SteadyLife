@@ -12,6 +12,11 @@
     type="text/css"
     href="/public/style/loginPage.css"
   />
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="/public/style/Button.css"
+/> 
 </head>
 <body>
 <div class="main"> 
@@ -30,6 +35,12 @@
       <img id="login-img" src="public/images/google-login.png" alt=""/>
       </a>
   </div>
+<% } else { %>
+  <div class="main-section">
+    <a href="/todo">
+    <button class="w-btn w-btn-indigo" style="width: 100px; height: 40px; margin-top: 60px;">Main Page</button>
+    </a>
+</div>
 <% } %>
 </div>
 </body>
