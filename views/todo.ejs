@@ -29,22 +29,26 @@
       type="text/css"
       href="/public/style/calendar.css"
     />
-  <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/datalab.min.css">
-  <script src="https://naver.github.io/billboard.js/release/latest/dist/billboard.pkgd.min.js"></script>
-  <script>
-    $( function() {
-      $( "#datepicker" ).datepicker({
-        dateFormat: "yy-mm-dd",
-        onSelect: function () {
-          document.getDate.submit();
-        },
-      });
-    } );
-  </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/public/style/billboard.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://naver.github.io/billboard.js/release/latest/dist/billboard.pkgd.min.js"></script>
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({
+          dateFormat: "yy-mm-dd",
+          onSelect: function () {
+            document.getDate.submit();
+          },
+        });
+      } );
+    </script>
   </head>
 
   <body>
