@@ -211,6 +211,7 @@
 .color-palette div {
   flex: 1;
   font-size: 12px;
+  color: gray;
 }
 
 #study-color {
@@ -384,11 +385,11 @@ footer a:visited {
   .loader {
     position: absolute;
     left: calc(50% - 30px);
-    top: 20%;
+    top: 30%;
     z-index: 1;
     border: 10px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 10px solid #3498db;
+    border-top: 10px solid rgb(21, 53, 139, 0.5);
     width: 60px;
     height: 60px;
     -webkit-animation: spin 2s linear infinite;

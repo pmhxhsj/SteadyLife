@@ -50,7 +50,7 @@ const displayBillboard = () => {
       chart.legend.hide();
 
       chart.data.colors({
-        noData: 'rgba(225,225,225,0.5)',
+        noData: 'rgba(223,212,228, 0.2)',
       });
 
       chart.resize({
