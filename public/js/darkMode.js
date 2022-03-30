@@ -3,12 +3,18 @@ const darkMode = () => {
 
   document.querySelector('#dark-mode').addEventListener('click', (e) => {
     if (localStorage.getItem('darkmode') === 'enable') {
-      // style 다크모드로 변경
-      localStorage.removeItem('darkmode');
+      document.body.dataset.theme = 'dark';
+      document.body.classList.add('dark-mode');
+
+      document.querySelector('#dark-mode').innerHTML = '🔅';
+
       localStorage.setItem('darkmode', 'able');
     } else {
-      // style 다크모드 해제
-      localStorage.removeItem('darkmode');
+      document.body.dataset.theme = 'basic';
+      document.body.classList.remove('dark-mode');
+
+      document.querySelector('#dark-mode').innerHTML = '🌙';
+
       localStorage.setItem('darkmode', 'enable');
     }
   });
