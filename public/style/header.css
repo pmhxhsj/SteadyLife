@@ -8,16 +8,12 @@
   margin-bottom: 40px;
 }
 
-.start-header {
+.header div {
   flex: 1;
 }
 
-.main-text-container {
+.header section {
   flex: 5;
-}
-
-.end-header {
-  flex: 1;
 }
 
 #main-text {
