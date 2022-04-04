@@ -180,17 +180,6 @@
 
           return hour + ':' + minutes;
         };
-
-        let studyTime = 0;
-        let restTime = 0;
-
-        todoTasks.forEach(ele => {
-          if(ele.category === "공부" || ele.category === "독서"){
-            studyTime += calculateTime(ele.remainingTime);
-          } else {
-            restTime += calculateTime(ele.remainingTime);
-          }
-        });
         
         let [study, exercise, walk, reading, love, sleep, partTimeJob, other] = [0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -273,6 +262,10 @@
         <span id="walk" class="hidden"><%= walk %></span>
         <span id="other" class="hidden"><%= other %></span> 
         
+        <% 
+          let studyTime = study + reading;
+          let restTime = sleep + walk + love;
+        %>
         <div class="time-article-container hidden">
           <div class="time-article-view">
             <table id="time-article">
@@ -284,10 +277,10 @@
               </th>
               <tr>
                 <td>
-                  <%= Math.floor(studyTime/60) %>시간 <%= studyTime%60 %>분
+                  <%= Math.floor(studyTime/60) %>시간 <%= studyTime % 60 %>분
                 </td>
                 <td>
-                  <%= Math.floor(restTime/60) %>시간 <%= restTime%60 %>분
+                  <%= Math.floor(restTime/60) %>시간 <%= restTime % 60 %>분
                 </td>
               </tr>
               <tr style="height: 100px;">
@@ -295,7 +288,7 @@
                 <% let studyTree = '';
                    let restSprout = '';
 
-                   const totalStudyTime = Math.floor(studyTime / 60);
+                   const totalStudyTime = Math.floor((study+reading) / 60);
                    const totalRestTime = Math.floor(restTime / 60);
 
                    
@@ -310,8 +303,8 @@
                    totalRestTime <= 2 ? restSprout="🌺" :
                    totalRestTime <= 3 ? restSprout="🌷" :
                    totalRestTime <= 4 ? restSprout="🌹" :
-                   totalRestTime <= 5 ? restSprout="🌸" :
-                   totalRestTime <= 6 ? restSprout="🌼" : restSprout="🌻"; %>
+                   totalRestTime <= 8 ? restSprout="🌸" :
+                   totalRestTime <= 10 ? restSprout="🌼" : restSprout="🌻"; %>
                   <td> 
                     <span style="font-size: 70px;"><%= studyTree %></span><br />
                     <% if(studyTime >= 360) { %>
@@ -320,7 +313,7 @@
                  </td>
                   <td>
                     <span style="font-size: 70px;"><%= restSprout %></span>
-                    <% if(restTime >= 360) { %>
+                    <% if(restTime >= 600) { %>
                       <br /><span style="font-size: 25px;">💯</span>
                     <% } %> 
                   </td>  
