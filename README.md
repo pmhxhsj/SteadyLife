@@ -105,10 +105,3 @@
 <p align="center">
   <img style="width:400px" src="https://user-images.githubusercontent.com/72312559/159669958-ede9bc9d-a705-4aa9-bf7c-2c020529ff0f.gif">
 </p>
-
-<hr>
-### Main Page
-
-<p align="center">
-  <img width="911" alt="Screenshot_2022-03-24 05 45 54_XrX1qT" src="https://user-images.githubusercontent.com/72312559/159792680-bd8d14cd-3a63-4080-adbf-5b7f2511e7ec.png">
-</p>
