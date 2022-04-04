@@ -202,7 +202,7 @@
 }
 .color-palette {
   display: flex;
-  width: 300px;
+  width: 330px;
   margin-right: 10px;
   align-items: flex-end;
   justify-content: right;
@@ -234,6 +234,9 @@
 }
 #sleep-color {
   background-color: rgba(62, 149, 205, 0.5);
+}
+#partTimeJob-color {
+  background-color: rgba(121, 222, 162, 0.5);
 }
 
 /* loading */
@@ -379,7 +382,7 @@ footer a:visited {
 
   .color-palette div {
     flex: 1;
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .loader {
