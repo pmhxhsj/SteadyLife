@@ -5,14 +5,14 @@ const displayBillboard = () => {
   const dataByDate = [];
 
   while (dateObj.length) {
-    dataByDate.push(dateObj.splice(0, 8));
+    dataByDate.push(dateObj.splice(0, 9));
   }
 
   chartArr.forEach((v) => {
     const value = v.classList[1];
     let isBlank = true;
-    let [study, reading, sleep, exercise, walk, love, other] = [
-      0, 0, 0, 0, 0, 0, 0,
+    let [study, reading, exercise, walk, sleep, love, partTimeJob, other] = [
+      0, 0, 0, 0, 0, 0, 0, 0,
     ];
 
     for (let i = 0; i < dataByDate.length; i++) {
@@ -23,7 +23,8 @@ const displayBillboard = () => {
         walk = +dataByDate[i][4];
         sleep = +dataByDate[i][5];
         love = +dataByDate[i][6];
-        other = +dataByDate[i][7];
+        partTimeJob = +dataByDate[i][7];
+        other = +dataByDate[i][8];
         isBlank = false;
         break;
       }
@@ -66,6 +67,7 @@ const displayBillboard = () => {
     let formatSleep = convertMinutesToHours(sleep);
     let formatExercise = convertMinutesToHours(exercise);
     let formatWalk = convertMinutesToHours(walk);
+    let formatPartTimeJob = convertMinutesToHours(partTimeJob);
     let formatLove = convertMinutesToHours(love);
     let formatOther = convertMinutesToHours(other);
 
@@ -76,6 +78,7 @@ const displayBillboard = () => {
           ['독서', reading],
           ['수면', sleep],
           [('운동', exercise)],
+          ['아르바이트', partTimeJob],
           ['산책', walk],
           ['데이트', love],
           ['기타', other],
@@ -87,6 +90,7 @@ const displayBillboard = () => {
             독서: ${formatReading}\n
             수면: ${formatSleep}\n
             운동: ${formatExercise}\n
+            아르바이트: ${formatPartTimeJob}\n
             산책: ${formatWalk}\n
             데이트: ${formatLove}\n
             기타: ${formatOther}
@@ -108,6 +112,7 @@ const displayBillboard = () => {
       독서: 'rgba(251,157,167,0.5)',
       수면: 'rgba(62,149,205,0.5)',
       운동: 'rgba(251,222,162,0.5)',
+      아르바이트: 'rgba(121,222,162,0.5)',
       산책: 'rgba(252,204,212,0.5)',
       데이트: 'rgba(142,182,149,0.5)',
       기타: 'rgba(239,222,255, 0.5)',

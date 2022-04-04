@@ -111,7 +111,7 @@
       }
     });
     
-    let [study, exercise, walk, reading, sleep, love, other] = [0, 0, 0, 0, 0, 0, 0];
+    let [study, exercise, walk, partTimeJob,reading, sleep, love, other] = [0, 0, 0, 0, 0, 0, 0, 0];
 
     todoTasks.forEach(ele => {
       switch (ele.category) {
@@ -123,6 +123,9 @@
           break;
         case "운동":
           exercise += calculateTime(ele.remainingTime);
+          break;  
+        case "아르바이트":
+          partTimeJob += calculateTime(ele.remainingTime);
           break;  
         case "산책":
           walk += calculateTime(ele.remainingTime);
@@ -143,6 +146,7 @@
     <span id="study" class="hidden"><%= study %></span>
     <span id="exercise" class="hidden"><%= exercise %></span> 
     <span id="reading" class="hidden"><%= reading %></span>
+    <span id="partTimeJob" class="hidden"><%= partTimeJob %></span>
     <span id="love" class="hidden"><%= love %></span> 
     <span id="sleep" class="hidden"><%= sleep %></span> 
     <span id="walk" class="hidden"><%= walk %></span>
@@ -151,7 +155,7 @@
     <% let obj = {};
 
        todoTasks.forEach(v => {
-         if(!obj[v.date]) obj[v.date] = [0,0,0,0,0,0,0];
+         if(!obj[v.date]) obj[v.date] = [0,0,0,0,0,0,0,0];
        });
 
        todoTasks.forEach(ele => {
@@ -174,8 +178,11 @@
             case "데이트":
               obj[ele.date][5] += calculateTime(ele.remainingTime);
               break;
-            default:
+            case "아르바이트":
               obj[ele.date][6] += calculateTime(ele.remainingTime);
+              break;
+            default:
+              obj[ele.date][7] += calculateTime(ele.remainingTime);
               break;
           }
         }); %>
