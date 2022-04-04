@@ -78,7 +78,7 @@ const displayBillboard = () => {
           ['독서', reading],
           ['수면', sleep],
           [('운동', exercise)],
-          ['아르바이트', partTimeJob],
+          ['알바', partTimeJob],
           ['산책', walk],
           ['데이트', love],
           ['기타', other],
@@ -90,7 +90,7 @@ const displayBillboard = () => {
             독서: ${formatReading}\n
             수면: ${formatSleep}\n
             운동: ${formatExercise}\n
-            아르바이트: ${formatPartTimeJob}\n
+            알바: ${formatPartTimeJob}\n
             산책: ${formatWalk}\n
             데이트: ${formatLove}\n
             기타: ${formatOther}
@@ -112,7 +112,7 @@ const displayBillboard = () => {
       독서: 'rgba(251,157,167,0.5)',
       수면: 'rgba(62,149,205,0.5)',
       운동: 'rgba(251,222,162,0.5)',
-      아르바이트: 'rgba(121,222,162,0.5)',
+      알바: 'rgba(121,222,162,0.5)',
       산책: 'rgba(252,204,212,0.5)',
       데이트: 'rgba(142,182,149,0.5)',
       기타: 'rgba(239,222,255, 0.5)',
