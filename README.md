@@ -55,7 +55,7 @@
 ### ✔︎ 메인페이지(MyPage)
 
 <p align="center">
-  <img width="800" alt="Screenshot_2022-03-24 22 48 46_PUy81N" src="https://user-images.githubusercontent.com/72312559/159930417-1375ea54-4bf9-4ccb-9cb7-aae1965cbf86.png">
+  <img width="800" alt="Screenshot_2022-04-05 04 28 46_0YtpVH" src="https://user-images.githubusercontent.com/72312559/161617887-6560e7ba-d993-4e8c-b372-68127ff96268.png">
 </p>
 
 ###### ✔ billboard.js를 사용해 당일의 데이터를 시각화하였습니다.
@@ -65,7 +65,7 @@
 <br>
 
 <p align="center">
-  <img width="400" alt="Screenshot_2022-03-24 22 49 56_QNsSjL" src="https://user-images.githubusercontent.com/72312559/159930704-c225a588-6a16-4de8-a898-0946491ea13e.png">
+  <img width="600" alt="Screenshot_2022-04-05 04 29 00_6siGbv" src="https://user-images.githubusercontent.com/72312559/161617915-fdf6760a-f35f-4605-a9f7-4c0b622c82c7.png">
 </p>
 <br>
 
