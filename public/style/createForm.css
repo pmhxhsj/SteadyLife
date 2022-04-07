@@ -36,13 +36,14 @@
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
+  -webkit-text-align: center;
   appearance: none;
   text-align: center;
   text-align-last: center;
   width: 100px;
   height: 30px;
   border-radius: 10px;
-  border: rgba(179, 218, 255, 0.7) 1px solid;
+  border: none;
 }
 
 .form-box {
@@ -65,7 +66,7 @@ select {
   text-align-last: center;
   text-align: center;
   font-size: 11px;
-  border: rgba(179, 218, 255, 0.7) 1px solid;
+  border: none;
 }
 
 .input-title {
@@ -73,7 +74,7 @@ select {
   height: 40px;
   text-align-last: center;
   border-radius: 10px;
-  border: rgba(179, 218, 255, 0.7) 1px solid;
+  border: none;
 }
 
 @keyframes fade-in {
