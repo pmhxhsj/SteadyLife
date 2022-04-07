@@ -36,9 +36,9 @@
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
-  -webkit-text-align: center;
   appearance: none;
   text-align: center;
+  text-align: -webkit-center;
   text-align-last: center;
   width: 100px;
   height: 30px;
@@ -64,6 +64,7 @@ select {
   height: 30px;
   border-radius: 10px;
   text-align-last: center;
+  text-align: -webkit-center;
   text-align: center;
   font-size: 11px;
   border: none;
@@ -73,6 +74,7 @@ select {
   width: 95%;
   height: 40px;
   text-align-last: center;
+  text-align: -webkit-center;
   border-radius: 10px;
   border: none;
 }
